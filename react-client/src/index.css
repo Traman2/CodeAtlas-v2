@@ -1,1 +1,26 @@
 @import "tailwindcss";
+
+/* Custom scrollbar styles */
+.custom-scrollbar::-webkit-scrollbar {
+    width: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: transparent;
+}
+
+.custom-scrollbar.scrollbar-visible::-webkit-scrollbar-track {
+    background: #f3f4f6;
+}
+
+.custom-scrollbar.scrollbar-visible::-webkit-scrollbar-thumb {
+    background: #110b8c;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:active {
+    background: #0d0866;
+}
