@@ -1,10 +1,10 @@
 
-export default function WebDev() {
+export default function DataAnalytics() {
     return (
         <>
             <div className="flex flex-1 overflow-hidden">
                 <div className="flex-1 pt-4 px-6 max-w-70 overflow-y-auto">
-                    Tabs 1 WebDev
+                    Tabs 1 DataAnalytics
                 </div>
 
                 <div className="flex-1 pt-4 flex justify-center">

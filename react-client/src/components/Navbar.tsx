@@ -1,16 +1,16 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
-import allDocsNavClicked from "../../public/global/allDocsNavClicked.svg";
-import allDocsNavNotClicked from "../../public/global/allDocsNavNotClicked.svg";
-import articlesNavClicked from "../../public/global/articlesNavClicked.svg";
-import articlesNavNotClicked from "../../public/global/articlesNavNotClicked.svg";
-import apiNavClicked from "../../public/global/apiNavClicked.svg";
-import apiNavNotClicked from "../../public/global/apiNavNotClicked.svg";
-import planningAgentNavClicked from "../../public/global/planningAgentNavClicked.svg";
-import planningAgentNavNotClicked from "../../public/global/planningAgentNavNotClicked.svg";
-import CodeAtlasMainLogo from "../../public/global/CodeAtlasMainLogo.svg";
-import DarkMode from "../../public/global/DarkMode.svg";
-import Github from "../../public/global/Github.svg";
+import allDocsNavClicked from "/global/allDocsNavClicked.svg";
+import allDocsNavNotClicked from "/global/allDocsNavNotClicked.svg";
+import articlesNavClicked from "/global/articlesNavClicked.svg";
+import articlesNavNotClicked from "/global/articlesNavNotClicked.svg";
+import apiNavClicked from "/global/apiNavClicked.svg";
+import apiNavNotClicked from "/global/apiNavNotClicked.svg";
+import planningAgentNavClicked from "/global/planningAgentNavClicked.svg";
+import planningAgentNavNotClicked from "/global/planningAgentNavNotClicked.svg";
+import CodeAtlasMainLogo from "/global/CodeAtlasMainLogo.svg";
+import DarkMode from "/global/DarkMode.svg";
+import Github from "/global/Github.svg";
 
 type PageType = "allDocs" | "articles" | "apiFinder" | "planningAgent";
 

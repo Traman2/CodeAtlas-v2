@@ -9,11 +9,11 @@ function App() {
     <>
       <Router>
         <Routes>
+          <Route path="" element={<AllDocsMain />} />
           <Route path="AllDocs" element={<AllDocsMain />} />
           <Route path="Articles" element={<ArticlesMain />} />
           <Route path="APIFinder" element={<APIFinderMain />} />
           <Route path="PlanningAgent" element={<PlanningAgentMain />} />
-
         </Routes>
       </Router>
     </>
