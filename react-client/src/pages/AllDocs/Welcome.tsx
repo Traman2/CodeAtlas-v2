@@ -75,40 +75,64 @@ export default function Welcome() {
 
     const currentSections = getSections()
 
-    // IntersectionObserver to track which section is in view
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        setActiveSection(entry.target.id)
-                    }
-                })
-            },
-            {
-                rootMargin: "-20% 0px -80% 0px", // Trigger when section is near top
-                threshold: 0
-            }
-        )
+    // Add "Top of page" to sections
+    const sectionsWithTop = [
+        { id: "top-of-page", title: "Top of page" },
+        ...currentSections
+    ]
 
-        // Observe all section headings
-        currentSections.forEach((sec) => {
-            const element = document.getElementById(sec.id)
-            if (element) {
-                observer.observe(element)
+    useEffect(() => {
+        const contentContainer = document.querySelector('.content-scrollbar')
+        if (!contentContainer) return
+
+        const handleScroll = () => {
+            if (contentContainer.scrollTop < 50) {
+                setActiveSection("top-of-page")
+                return
             }
-        })
+
+            const sectionElements = currentSections
+                .map(sec => ({
+                    id: sec.id,
+                    element: document.getElementById(sec.id)
+                }))
+                .filter(item => item.element !== null)
+            let activeId = "top-of-page"
+
+            for (let i = 0; i < sectionElements.length; i++) {
+                const element = sectionElements[i].element
+                if (!element) continue
+                const rect = element.getBoundingClientRect()
+                if (rect.top <= 200) {
+                    activeId = sectionElements[i].id
+                } else {
+                    break
+                }
+            }
+
+            setActiveSection(activeId)
+        }
+
+        contentContainer.addEventListener('scroll', handleScroll)
+        // Set initial state
+        handleScroll()
 
         return () => {
-            observer.disconnect()
+            contentContainer.removeEventListener('scroll', handleScroll)
         }
     }, [currentSections])
 
-    // Scroll to section handler
     const scrollToSection = (sectionId: string) => {
-        const element = document.getElementById(sectionId)
-        if (element) {
-            element.scrollIntoView({ behavior: "smooth", block: "start" })
+        if (sectionId === "top-of-page") {
+            const contentContainer = document.querySelector('.content-scrollbar')
+            if (contentContainer) {
+                contentContainer.scrollTo({ top: 0, behavior: "smooth" })
+            }
+        } else {
+            const element = document.getElementById(sectionId)
+            if (element) {
+                element.scrollIntoView({ behavior: "smooth", block: "start" })
+            }
         }
     }
 
@@ -311,25 +335,21 @@ export default function Welcome() {
 
                         <div className="sticky top-4 self-start pl-2 min-w-70 hidden xl:block">
                             <p className="text-[#4B5563] font-semibold mb-3">On this page</p>
-                            {currentSections.length > 0 ? (
-                                <div className="flex flex-col">
-                                    {currentSections.map((sec) => (
-                                        <button
-                                            key={sec.id}
-                                            onClick={() => scrollToSection(sec.id)}
-                                            className={`text-left py-1 pl-3 border-l-2 transition-colors text-sm ${
-                                                activeSection === sec.id
-                                                    ? "border-[#4f46ff] text-[#4f46ff] font-semibold"
-                                                    : "border-gray-200 text-[#4B5563] hover:border-gray-400 hover:text-gray-900"
-                                            }`}
-                                        >
-                                            {sec.title}
-                                        </button>
-                                    ))}
-                                </div>
-                            ) : (
-                                <p className="text-gray-400 text-sm">No sections available</p>
-                            )}
+                            <div className="flex flex-col">
+                                {sectionsWithTop.map((sec) => (
+                                    <button
+                                        key={sec.id}
+                                        onClick={() => scrollToSection(sec.id)}
+                                        className={`text-left py-1 pl-3 border-l-2 transition-colors text-sm ${
+                                            activeSection === sec.id
+                                                ? "border-[#4f46ff] text-[#4f46ff] font-semibold"
+                                                : "border-gray-200 text-[#4B5563] hover:border-gray-400 hover:text-gray-900"
+                                        }`}
+                                    >
+                                        {sec.title}
+                                    </button>
+                                ))}
+                            </div>
                         </div>
                     </div>
                 </div>
