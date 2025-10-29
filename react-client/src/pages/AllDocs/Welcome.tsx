@@ -2,7 +2,6 @@ import { useState, useRef } from "react"
 
 import GithubGray from "/allDocs/GithubGray.svg"
 import OpenOutside from "/allDocs/OpenOutside.svg"
-import Portfolio from "/allDocs/Portfolio.svg"
 
 import DocsOverview from "../../docs/Welcome/GetStarted/Overview"
 import DocsHowToUse from "../../docs/Welcome/GetStarted/HowToUse"
