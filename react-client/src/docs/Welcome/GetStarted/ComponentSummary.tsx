@@ -1,3 +1,7 @@
+export const sections = [
+    { id: "core-components", title: "Core Components" },
+    { id: "feature-categories", title: "Feature Categories" }
+]
 
 export default function ComponentSummary() {
     return (
@@ -10,7 +14,7 @@ export default function ComponentSummary() {
                 and utilize the platform more effectively.
             </p>
 
-            <h2 className="text-2xl font-semibold mt-8 mb-4">Core Components</h2>
+            <h2 id="core-components" className="text-2xl font-semibold mt-8 mb-4">Core Components</h2>
             <div className="space-y-4">
                 <div>
                     <h3 className="text-xl font-semibold">Navigation Menu</h3>
@@ -35,7 +39,7 @@ export default function ComponentSummary() {
                 </div>
             </div>
 
-            <h2 className="text-2xl font-semibold mt-8 mb-4">Feature Categories</h2>
+            <h2 id="feature-categories" className="text-2xl font-semibold mt-8 mb-4">Feature Categories</h2>
             <ul className="list-disc list-inside mt-2 space-y-2 text-gray-700">
                 <li>Device Documentation: Web Development, Mobile Apps, Desktop Applications</li>
                 <li>Application Logic: Cloud Services, Backend Systems, Deployment Strategies</li>

@@ -1,3 +1,7 @@
+export const sections = [
+    { id: "how-to-use-api-finder", title: "How to Use API Finder" },
+    { id: "popular-api-categories", title: "Popular API Categories" }
+]
 
 export default function APIFinderDocs() {
     return (
@@ -10,7 +14,7 @@ export default function APIFinderDocs() {
                 third-party services into your applications.
             </p>
 
-            <h2 className="text-2xl font-semibold mt-8 mb-4">How to Use API Finder</h2>
+            <h2 id="how-to-use-api-finder" className="text-2xl font-semibold mt-8 mb-4">How to Use API Finder</h2>
             <div className="space-y-4">
                 <div>
                     <h3 className="text-xl font-semibold">Search by Category</h3>
@@ -35,7 +39,7 @@ export default function APIFinderDocs() {
                 </div>
             </div>
 
-            <h2 className="text-2xl font-semibold mt-8 mb-4">Popular API Categories</h2>
+            <h2 id="popular-api-categories" className="text-2xl font-semibold mt-8 mb-4">Popular API Categories</h2>
             <ul className="list-disc list-inside mt-2 space-y-2 text-gray-700">
                 <li>Payment Processing (Stripe, PayPal, Square)</li>
                 <li>Maps & Geolocation (Google Maps, Mapbox)</li>

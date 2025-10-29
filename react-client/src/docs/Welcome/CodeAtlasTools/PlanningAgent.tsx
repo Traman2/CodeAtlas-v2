@@ -1,3 +1,7 @@
+export const sections = [
+    { id: "key-features", title: "Key Features" },
+    { id: "use-cases", title: "Use Cases" }
+]
 
 export default function PlanningAgentDocs() {
     return (
@@ -10,7 +14,7 @@ export default function PlanningAgentDocs() {
                 with technology recommendations.
             </p>
 
-            <h2 className="text-2xl font-semibold mt-8 mb-4">Key Features</h2>
+            <h2 id="key-features" className="text-2xl font-semibold mt-8 mb-4">Key Features</h2>
             <div className="space-y-4">
                 <div>
                     <h3 className="text-xl font-semibold">Project Architecture</h3>
@@ -35,7 +39,7 @@ export default function PlanningAgentDocs() {
                 </div>
             </div>
 
-            <h2 className="text-2xl font-semibold mt-8 mb-4">Use Cases</h2>
+            <h2 id="use-cases" className="text-2xl font-semibold mt-8 mb-4">Use Cases</h2>
             <ul className="list-disc list-inside mt-2 space-y-2 text-gray-700">
                 <li>Planning new application development</li>
                 <li>Modernizing legacy systems</li>
@@ -43,6 +47,51 @@ export default function PlanningAgentDocs() {
                 <li>Creating development roadmaps</li>
                 <li>Estimating project timelines and resources</li>
             </ul>
+
+            <br/>
+            <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus iusto omnis, 
+                voluptate fugit illo explicabo, libero est sed illum iure debitis praesentium alias 
+                quae. Cupiditate saepe, vero magnam atque hic aut veniam enim debitis itaque nemo 
+                distinctio quia, reiciendis error tempore? Sed quas ad fuga voluptatibus quos repellendus. 
+                Delectus, doloribus.
+            </p>
+
+            <br/>
+            <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus iusto omnis, 
+                voluptate fugit illo explicabo, libero est sed illum iure debitis praesentium alias 
+                quae. Cupiditate saepe, vero magnam atque hic aut veniam enim debitis itaque nemo 
+                distinctio quia, reiciendis error tempore? Sed quas ad fuga voluptatibus quos repellendus. 
+                Delectus, doloribus.
+            </p>
+
+            <br/>
+            <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus iusto omnis, 
+                voluptate fugit illo explicabo, libero est sed illum iure debitis praesentium alias 
+                quae. Cupiditate saepe, vero magnam atque hic aut veniam enim debitis itaque nemo 
+                distinctio quia, reiciendis error tempore? Sed quas ad fuga voluptatibus quos repellendus. 
+                Delectus, doloribus.
+            </p>
+
+            <br/>
+            <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus iusto omnis, 
+                voluptate fugit illo explicabo, libero est sed illum iure debitis praesentium alias 
+                quae. Cupiditate saepe, vero magnam atque hic aut veniam enim debitis itaque nemo 
+                distinctio quia, reiciendis error tempore? Sed quas ad fuga voluptatibus quos repellendus. 
+                Delectus, doloribus.
+            </p>
+
+            <br/>
+            <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus iusto omnis, 
+                voluptate fugit illo explicabo, libero est sed illum iure debitis praesentium alias 
+                quae. Cupiditate saepe, vero magnam atque hic aut veniam enim debitis itaque nemo 
+                distinctio quia, reiciendis error tempore? Sed quas ad fuga voluptatibus quos repellendus. 
+                Delectus, doloribus.
+            </p>
         </>
     )
 }

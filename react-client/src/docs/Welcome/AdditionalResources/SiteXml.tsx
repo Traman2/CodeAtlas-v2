@@ -1,3 +1,7 @@
+export const sections = [
+    { id: "what-is-a-sitemap", title: "What is a Sitemap?" },
+    { id: "implementation-guide", title: "Implementation Guide" }
+]
 
 export default function SiteXmlDocs() {
     return (
@@ -10,7 +14,7 @@ export default function SiteXmlDocs() {
                 search engine visibility and crawlability.
             </p>
 
-            <h2 className="text-2xl font-semibold mt-8 mb-4">What is a Sitemap?</h2>
+            <h2 id="what-is-a-sitemap" className="text-2xl font-semibold mt-8 mb-4">What is a Sitemap?</h2>
             <div className="space-y-4">
                 <div>
                     <h3 className="text-xl font-semibold">Purpose and Benefits</h3>
@@ -36,7 +40,7 @@ export default function SiteXmlDocs() {
                 </div>
             </div>
 
-            <h2 className="text-2xl font-semibold mt-8 mb-4">Implementation Guide</h2>
+            <h2 id="implementation-guide" className="text-2xl font-semibold mt-8 mb-4">Implementation Guide</h2>
             <ul className="list-disc list-inside mt-2 space-y-2 text-gray-700">
                 <li>Creating XML sitemaps for static and dynamic sites</li>
                 <li>Submitting sitemaps to Google Search Console</li>

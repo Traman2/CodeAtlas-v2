@@ -1,3 +1,7 @@
+export const sections = [
+    { id: "cross-platform-frameworks", title: "Cross-Platform Frameworks" },
+    { id: "native-technologies", title: "Native Technologies" }
+]
 
 export default function DesktopDocs() {
     return (
@@ -9,7 +13,7 @@ export default function DesktopDocs() {
                 about cross-platform frameworks and native development approaches.
             </p>
 
-            <h2 className="text-2xl font-semibold mt-8 mb-4">Cross-Platform Frameworks</h2>
+            <h2 id="cross-platform-frameworks" className="text-2xl font-semibold mt-8 mb-4">Cross-Platform Frameworks</h2>
             <div className="space-y-4">
                 <div>
                     <h3 className="text-xl font-semibold">Electron</h3>
@@ -34,7 +38,7 @@ export default function DesktopDocs() {
                 </div>
             </div>
 
-            <h2 className="text-2xl font-semibold mt-8 mb-4">Native Technologies</h2>
+            <h2 id="native-technologies" className="text-2xl font-semibold mt-8 mb-4">Native Technologies</h2>
             <ul className="list-disc list-inside mt-2 space-y-2 text-gray-700">
                 <li>Qt for C++ desktop applications</li>
                 <li>WPF and WinForms for Windows apps</li>

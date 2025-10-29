@@ -1,5 +1,12 @@
+import { useNavigate } from "react-router-dom"
+
+export const sections = [
+    { id: "quick-links", title: "Quick Links" }
+]
 
 export default function DocsOverview() {
+    const navigate = useNavigate();
+
     return (
         <>
             <p className="text-[#4f46ff] font-semibold text-sm">GET STARTED</p>
@@ -12,12 +19,11 @@ export default function DocsOverview() {
                 CodeAtlas provides organized resources and guidance.
             </p>
 
-            <h2 className="text-2xl font-semibold mt-8 mb-4">Quick Links</h2>
+            <h2 id="quick-links" className="text-2xl font-semibold mt-8 mb-4">Quick Links</h2>
             <div className="flex flex-col gap-2">
-                <a href="#how-to-use" className="text-[#554DE2] hover:underline">How to Use Code Atlas</a>
-                <a href="#component-summary" className="text-[#554DE2] hover:underline">Component Summary</a>
+                <button onClick={() => navigate("/alldocs/welcome/howtouse")} className="text-[#554DE2] hover:underline self-start cursor-pointer">How to Use Code Atlas</button>
+                <button onClick={() => navigate("/alldocs/welcome/componentsummary")} className="text-[#554DE2] hover:underline self-start cursor-pointer">Component Summary</button>
                 <a href="https://github.com/traman2/codeatlas" target="_blank" rel="noopener noreferrer" className="text-[#554DE2] hover:underline">GitHub Repository</a>
-                <a href="https://tejasraman.com" target="_blank" rel="noopener noreferrer" className="text-[#554DE2] hover:underline">Developer Portfolio</a>
             </div>
         </>
     )

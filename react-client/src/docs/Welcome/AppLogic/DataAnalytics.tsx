@@ -1,3 +1,7 @@
+export const sections = [
+    { id: "analytics-platforms", title: "Analytics Platforms" },
+    { id: "data-technologies", title: "Data Technologies" }
+]
 
 export default function DataAnalyticsDocs() {
     return (
@@ -9,7 +13,7 @@ export default function DataAnalyticsDocs() {
                 extract insights from data using modern analytics platforms and libraries.
             </p>
 
-            <h2 className="text-2xl font-semibold mt-8 mb-4">Analytics Platforms</h2>
+            <h2 id="analytics-platforms" className="text-2xl font-semibold mt-8 mb-4">Analytics Platforms</h2>
             <div className="space-y-4">
                 <div>
                     <h3 className="text-xl font-semibold">Python Data Stack</h3>
@@ -34,7 +38,7 @@ export default function DataAnalyticsDocs() {
                 </div>
             </div>
 
-            <h2 className="text-2xl font-semibold mt-8 mb-4">Data Technologies</h2>
+            <h2 id="data-technologies" className="text-2xl font-semibold mt-8 mb-4">Data Technologies</h2>
             <ul className="list-disc list-inside mt-2 space-y-2 text-gray-700">
                 <li>SQL and database querying techniques</li>
                 <li>Data warehousing with Snowflake and Redshift</li>

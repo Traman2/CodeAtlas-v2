@@ -1,3 +1,7 @@
+export const sections = [
+    { id: "navigate-by-category", title: "Navigate by Category" },
+    { id: "getting-started-guide", title: "Getting Started Guide" }
+]
 
 export default function DocsHowToUse() {
     return (
@@ -11,7 +15,7 @@ export default function DocsHowToUse() {
                 what you're looking for
             </p>
 
-            <h2 className="text-2xl font-semibold mt-8 mb-4">Navigate by Category</h2>
+            <h2 id="navigate-by-category" className="text-2xl font-semibold mt-8 mb-4">Navigate by Category</h2>
             <div className="flex flex-col gap-2">
                 <a href="#devices" className="text-[#554DE2] hover:underline">Devices (Web Dev, Mobile, Desktop)</a>
                 <a href="#app-logic" className="text-[#554DE2] hover:underline">App Logic (Cloud, Backend, Deployment, Data Analytics)</a>
@@ -19,7 +23,7 @@ export default function DocsHowToUse() {
                 <a href="#resources" className="text-[#554DE2] hover:underline">Additional Resources</a>
             </div>
 
-            <h2 className="text-2xl font-semibold mt-8 mb-4">Getting Started Guide</h2>
+            <h2 id="getting-started-guide" className="text-2xl font-semibold mt-8 mb-4">Getting Started Guide</h2>
             <ol className="list-decimal list-inside mt-2 space-y-2">
                 <li>Browse the navigation menu on the left to find your technology stack</li>
                 <li>Click on any section to view detailed documentation and resources</li>

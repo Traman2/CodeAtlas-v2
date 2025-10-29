@@ -1,3 +1,7 @@
+export const sections = [
+    { id: "template-categories", title: "Template Categories" },
+    { id: "available-templates", title: "Available Templates" }
+]
 
 export default function CommonTemplatesDocs() {
     return (
@@ -10,7 +14,7 @@ export default function CommonTemplatesDocs() {
                 common technology stacks and project types.
             </p>
 
-            <h2 className="text-2xl font-semibold mt-8 mb-4">Template Categories</h2>
+            <h2 id="template-categories" className="text-2xl font-semibold mt-8 mb-4">Template Categories</h2>
             <div className="space-y-4">
                 <div>
                     <h3 className="text-xl font-semibold">Web Application Templates</h3>
@@ -35,7 +39,7 @@ export default function CommonTemplatesDocs() {
                 </div>
             </div>
 
-            <h2 className="text-2xl font-semibold mt-8 mb-4">Available Templates</h2>
+            <h2 id="available-templates" className="text-2xl font-semibold mt-8 mb-4">Available Templates</h2>
             <ul className="list-disc list-inside mt-2 space-y-2 text-gray-700">
                 <li>React + TypeScript + Tailwind CSS starter</li>
                 <li>Next.js with authentication and database</li>

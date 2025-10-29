@@ -1,3 +1,7 @@
+export const sections = [
+    { id: "major-cloud-providers", title: "Major Cloud Providers" },
+    { id: "cloud-technologies", title: "Cloud Technologies" }
+]
 
 export default function CloudDocs() {
     return (
@@ -10,7 +14,7 @@ export default function CloudDocs() {
                 cloud-native architectures.
             </p>
 
-            <h2 className="text-2xl font-semibold mt-8 mb-4">Major Cloud Providers</h2>
+            <h2 id="major-cloud-providers" className="text-2xl font-semibold mt-8 mb-4">Major Cloud Providers</h2>
             <div className="space-y-4">
                 <div>
                     <h3 className="text-xl font-semibold">Amazon Web Services (AWS)</h3>
@@ -35,7 +39,7 @@ export default function CloudDocs() {
                 </div>
             </div>
 
-            <h2 className="text-2xl font-semibold mt-8 mb-4">Cloud Technologies</h2>
+            <h2 id="cloud-technologies" className="text-2xl font-semibold mt-8 mb-4">Cloud Technologies</h2>
             <ul className="list-disc list-inside mt-2 space-y-2 text-gray-700">
                 <li>Serverless computing with Lambda and Cloud Functions</li>
                 <li>Container orchestration with Kubernetes</li>

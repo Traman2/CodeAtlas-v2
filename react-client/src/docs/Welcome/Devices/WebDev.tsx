@@ -1,3 +1,7 @@
+export const sections = [
+    { id: "popular-frameworks", title: "Popular Frameworks" },
+    { id: "essential-tools", title: "Essential Tools" }
+]
 
 export default function WebDevDocs() {
     return (
@@ -10,7 +14,7 @@ export default function WebDevDocs() {
                 web applications.
             </p>
 
-            <h2 className="text-2xl font-semibold mt-8 mb-4">Popular Frameworks</h2>
+            <h2 id="popular-frameworks" className="text-2xl font-semibold mt-8 mb-4">Popular Frameworks</h2>
             <div className="space-y-4">
                 <div>
                     <h3 className="text-xl font-semibold">React</h3>
@@ -35,7 +39,7 @@ export default function WebDevDocs() {
                 </div>
             </div>
 
-            <h2 className="text-2xl font-semibold mt-8 mb-4">Essential Tools</h2>
+            <h2 id="essential-tools" className="text-2xl font-semibold mt-8 mb-4">Essential Tools</h2>
             <ul className="list-disc list-inside mt-2 space-y-2 text-gray-700">
                 <li>Vite & Webpack for bundling and building</li>
                 <li>TypeScript for type-safe development</li>

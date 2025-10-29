@@ -1,3 +1,7 @@
+export const sections = [
+    { id: "deployment-platforms", title: "Deployment Platforms" },
+    { id: "devops-practices", title: "DevOps Practices" }
+]
 
 export default function DeploymentDocs() {
     return (
@@ -9,7 +13,7 @@ export default function DeploymentDocs() {
                 Automate your deployment workflow and ensure reliable releases.
             </p>
 
-            <h2 className="text-2xl font-semibold mt-8 mb-4">Deployment Platforms</h2>
+            <h2 id="deployment-platforms" className="text-2xl font-semibold mt-8 mb-4">Deployment Platforms</h2>
             <div className="space-y-4">
                 <div>
                     <h3 className="text-xl font-semibold">Vercel & Netlify</h3>
@@ -34,7 +38,7 @@ export default function DeploymentDocs() {
                 </div>
             </div>
 
-            <h2 className="text-2xl font-semibold mt-8 mb-4">DevOps Practices</h2>
+            <h2 id="devops-practices" className="text-2xl font-semibold mt-8 mb-4">DevOps Practices</h2>
             <ul className="list-disc list-inside mt-2 space-y-2 text-gray-700">
                 <li>Continuous Integration and Continuous Deployment</li>
                 <li>Infrastructure monitoring and alerting</li>

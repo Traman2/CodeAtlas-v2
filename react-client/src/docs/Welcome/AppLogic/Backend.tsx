@@ -1,3 +1,7 @@
+export const sections = [
+    { id: "backend-frameworks", title: "Backend Frameworks" },
+    { id: "backend-essentials", title: "Backend Essentials" }
+]
 
 export default function BackendDocs() {
     return (
@@ -9,7 +13,7 @@ export default function BackendDocs() {
                 robust APIs, manage databases, and implement authentication and authorization.
             </p>
 
-            <h2 className="text-2xl font-semibold mt-8 mb-4">Backend Frameworks</h2>
+            <h2 id="backend-frameworks" className="text-2xl font-semibold mt-8 mb-4">Backend Frameworks</h2>
             <div className="space-y-4">
                 <div>
                     <h3 className="text-xl font-semibold">Node.js & Express</h3>
@@ -34,7 +38,7 @@ export default function BackendDocs() {
                 </div>
             </div>
 
-            <h2 className="text-2xl font-semibold mt-8 mb-4">Backend Essentials</h2>
+            <h2 id="backend-essentials" className="text-2xl font-semibold mt-8 mb-4">Backend Essentials</h2>
             <ul className="list-disc list-inside mt-2 space-y-2 text-gray-700">
                 <li>RESTful API design and GraphQL</li>
                 <li>Database management (SQL and NoSQL)</li>

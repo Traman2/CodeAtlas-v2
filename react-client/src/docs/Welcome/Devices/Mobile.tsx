@@ -1,3 +1,7 @@
+export const sections = [
+    { id: "cross-platform-frameworks", title: "Cross-Platform Frameworks" },
+    { id: "native-development", title: "Native Development" }
+]
 
 export default function MobileDocs() {
     return (
@@ -9,7 +13,7 @@ export default function MobileDocs() {
                 Explore frameworks, tools, and best practices for mobile app development.
             </p>
 
-            <h2 className="text-2xl font-semibold mt-8 mb-4">Cross-Platform Frameworks</h2>
+            <h2 id="cross-platform-frameworks" className="text-2xl font-semibold mt-8 mb-4">Cross-Platform Frameworks</h2>
             <div className="space-y-4">
                 <div>
                     <h3 className="text-xl font-semibold">React Native</h3>
@@ -34,7 +38,7 @@ export default function MobileDocs() {
                 </div>
             </div>
 
-            <h2 className="text-2xl font-semibold mt-8 mb-4">Native Development</h2>
+            <h2 id="native-development" className="text-2xl font-semibold mt-8 mb-4">Native Development</h2>
             <ul className="list-disc list-inside mt-2 space-y-2 text-gray-700">
                 <li>Swift and SwiftUI for iOS development</li>
                 <li>Kotlin and Jetpack Compose for Android</li>
