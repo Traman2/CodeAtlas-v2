@@ -1,7 +1,23 @@
 import { useState, useRef } from "react"
+
 import GithubGray from "/allDocs/GithubGray.svg"
 import OpenOutside from "/allDocs/OpenOutside.svg"
 import Portfolio from "/allDocs/Portfolio.svg"
+
+import DocsOverview from "../../docs/Welcome/GetStarted/Overview"
+import DocsHowToUse from "../../docs/Welcome/GetStarted/HowToUse"
+import ComponentSummary from "../../docs/Welcome/GetStarted/ComponentSummary"
+import WebDevDocs from "../../docs/Welcome/Devices/WebDev"
+import MobileDocs from "../../docs/Welcome/Devices/Mobile"
+import DesktopDocs from "../../docs/Welcome/Devices/Desktop"
+import CloudDocs from "../../docs/Welcome/AppLogic/Cloud"
+import BackendDocs from "../../docs/Welcome/AppLogic/Backend"
+import DeploymentDocs from "../../docs/Welcome/AppLogic/Deployment"
+import DataAnalyticsDocs from "../../docs/Welcome/AppLogic/DataAnalytics"
+import APIFinderDocs from "../../docs/Welcome/CodeAtlasTools/APIFinder"
+import PlanningAgentDocs from "../../docs/Welcome/CodeAtlasTools/PlanningAgent"
+import CommonTemplatesDocs from "../../docs/Welcome/AdditionalResources/CommonTemplates"
+import SiteXmlDocs from "../../docs/Welcome/AdditionalResources/SiteXml"
 
 export default function Welcome() {
     const [activeTab, setActiveTab] = useState<string>("overview")
@@ -16,6 +32,41 @@ export default function Welcome() {
     const handleMouseLeave = () => {
         if (scrollbarRef.current) {
             scrollbarRef.current.classList.remove("scrollbar-visible")
+        }
+    }
+
+    function renderDocs() {
+        switch (activeTab) {
+            case "overview":
+                return <DocsOverview />
+            case "howToUse":
+                return <DocsHowToUse />
+            case "componentSummary":
+                return <ComponentSummary />
+            case "webDev":
+                return <WebDevDocs />
+            case "mobile":
+                return <MobileDocs />
+            case "desktop":
+                return <DesktopDocs />
+            case "cloud":
+                return <CloudDocs />
+            case "backend":
+                return <BackendDocs />
+            case "deployment":
+                return <DeploymentDocs />
+            case "dataAnalytics":
+                return <DataAnalyticsDocs />
+            case "apiFinder":
+                return <APIFinderDocs />
+            case "planningAgent":
+                return <PlanningAgentDocs />
+            case "commonTemplates":
+                return <CommonTemplatesDocs />
+            case "siteXml":
+                return <SiteXmlDocs />
+            default:
+                return <DocsOverview />
         }
     }
 
@@ -35,13 +86,13 @@ export default function Welcome() {
                         </div>
                         <img src={OpenOutside} />
                     </a>
-                    <a target="_blank" href="https://tejasraman.com" className="cursor-pointer transition-all opacity-80 hover:opacity-100 hover:bg-gray-100 px-2 py-1 flex justify-between items-center">
+                    {/* <a target="_blank" href="https://tejasraman.com" className="cursor-pointer transition-all opacity-80 hover:opacity-100 hover:bg-gray-100 px-2 py-1 flex justify-between items-center">
                         <div className="flex items-center gap-2">
                             <img src={Portfolio} />
                             <p className="text-[#4B5563]">Portfolio</p>
                         </div>
                         <img src={OpenOutside} />
-                    </a>
+                    </a> */}
                     {/* Main Welcome Links */}
                     <h1 className="px-2 font-semibold text-gray-800 uppercase text-sm mt-6 mb-3">Get Started</h1>
                     <button
@@ -181,13 +232,11 @@ export default function Welcome() {
                     <div className="mb-12" />
                 </div>
 
-                <div className="flex-1 overflow-y-auto">
+                <div className="flex-1 overflow-y-auto content-scrollbar">
                     <div className="flex pt-4 gap-4">
                         <div className="flex-1 flex justify-center">
-                            <div className="max-w-170">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea ullam possimus
-                                autem placeat ad soluta vel et! Dicta optio ratione voluptatem placeat ipsum
-                                blanditiis ab, commodi hic cupiditate dolor impedit repellat magni cumque voluptatibus in a dolorem numquam deserunt! Iure earum eius quasi sunt accusamus quia placeat pariatur illo ad in. Officiis, cupiditate totam nemo dolorem numquam unde suscipit doloribus iste nesciunt? Tenetur mollitia ipsa eligendi magni eveniet rerum, expedita, aspernatur qui laborum error quo dicta vero similique reiciendis suscipit. Rerum iste obcaecati nobis impedit adipisci veritatis. Animi, harum asperiores. Quasi facere ad tempore, quod molestias perferendis veniam non dolor voluptates aut repellat neque sit et sunt dignissimos error accusamus consequatur. Illo debitis eaque, eos fugiat iste aspernatur doloremque inventore! Perferendis temporibus, eligendi eaque iusto et nesciunt nihil voluptas quibusdam sit corrupti deleniti, ipsum architecto consequatur quae optio ratione ducimus harum hic possimus voluptatum nisi! Magnam fugiat iusto tenetur sit, ratione reiciendis praesentium quis? Exercitationem non amet culpa natus eum ut ab provident corporis recusandae nihil voluptate modi quam et, beatae facilis iure debitis fugit quo ipsum cupiditate enim repellendus necessitatibus. Illo deserunt quam, suscipit fugit aliquid laborum nihil quos obcaecati perspiciatis. Consectetur, similique doloribus! Nobis quasi beatae nisi quae vel laboriosam suscipit iusto sequi ad ullam. Vero nostrum blanditiis quia, reiciendis expedita ipsam sint aut molestias aspernatur sapiente corrupti provident error sunt veniam totam quidem velit nihil explicabo commodi distinctio reprehenderit. Minus laudantium necessitatibus amet. Impedit aliquam eum dicta architecto quas distinctio minus! Quae animi ipsum placeat mollitia, nostrum consequuntur dolores debitis omnis sequi possimus adipisci repudiandae delectus nobis eaque dolorem, quod recusandae porro deleniti perspiciatis numquam! Quod assumenda ducimus dolores atque earum doloribus repellat, provident ipsum, eos tempora odit! Magni labore molestias accusamus in ratione autem corrupti dolorum, possimus odit expedita voluptatum, asperiores placeat sed totam consequatur nesciunt ex nostrum! Voluptatibus quis aliquam consectetur esse quaerat doloremque facilis sit nulla veritatis, incidunt ullam quos, ipsam architecto tenetur nobis sint a iure commodi quod minima facere. Necessitatibus illo, tenetur et aperiam velit veniam sint dolores magnam quo, doloremque ut dignissimos neque temporibus. Doloremque culpa placeat adipisci, voluptate voluptatum consequuntur incidunt commodi cumque maiores assumenda eveniet! Reprehenderit, assumenda. Repellat velit architecto dolorum beatae illum iusto soluta nemo ab neque, culpa eum nesciunt dolorem, dolore voluptatum nostrum placeat aut odio quis molestias fugit! Maiores sint rerum distinctio nulla corrupti nisi consequuntur voluptatibus quia sit natus ratione porro ex quae excepturi sapiente veritatis doloribus, architecto similique nemo? Error adipisci consequuntur in esse consequatur quae sapiente possimus alias quo. Odio impedit dolorum consequuntur ad possimus earum ex veritatis. Voluptatibus accusamus vero similique minus sint! Deleniti, ullam odio enim explicabo alias blanditiis unde eaque! Quia molestias minus dolorum. Eos ducimus natus iste saepe inventore, accusantium, quaerat libero nam repellat numquam, eveniet facere! Nobis natus praesentium magni officia accusantium cum obcaecati, incidunt provident nemo deleniti excepturi reiciendis soluta? Facilis sed architecto quasi corporis ducimus, facere illo quidem accusamus quam non soluta, rerum fugit placeat atque, repudiandae error assumenda odit cupiditate nostrum. Nihil dolor nostrum quas.
+                            <div className="max-w-170 px-4">
+                                {renderDocs()}
                             </div>
                         </div>
 

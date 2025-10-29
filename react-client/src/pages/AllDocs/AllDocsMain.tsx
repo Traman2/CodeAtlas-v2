@@ -37,7 +37,7 @@ export default function AllDocsMain() {
 
 
   return (
-    <div className="flex flex-col h-dvh overflow-hidden">
+    <div className="flex flex-col h-dvh overflow-hidden bg-[#F9FAFB]">
       <div className="sticky top-0 z-10 bg-white">
         <Navbar defaultPage="allDocs" />
         <nav className="flex pt-3 gap-6 px-6 border-b border-black/20 shrink-0">

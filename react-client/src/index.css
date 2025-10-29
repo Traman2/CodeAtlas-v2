@@ -5,12 +5,19 @@
     width: 4px;
 }
 
+.custom-scrollbar::-webkit-scrollbar-button {
+    display: none;
+    height: 0;
+    width: 0;
+}
+
 .custom-scrollbar::-webkit-scrollbar-track {
     background: transparent;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
     background: transparent;
+    border-radius: 0;
 }
 
 .custom-scrollbar.scrollbar-visible::-webkit-scrollbar-track {
@@ -21,6 +28,11 @@
     background: #110b8c;
 }
 
-.custom-scrollbar::-webkit-scrollbar-thumb:active {
+.custom-scrollbar.scrollbar-visible::-webkit-scrollbar-thumb:active {
     background: #0d0866;
+}
+
+.content-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #110b8c #F9FAFB;
 }
