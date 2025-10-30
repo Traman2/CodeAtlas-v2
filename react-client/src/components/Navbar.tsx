@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import allDocsNavClicked from "/global/allDocsNavClicked.svg";
 import allDocsNavNotClicked from "/global/allDocsNavNotClicked.svg";
@@ -13,6 +13,7 @@ import DarkMode from "/global/DarkMode.svg";
 import Github from "/global/Github.svg";
 
 import { Icon } from "@iconify/react";
+import SearchModal from "./SearchModal";
 
 type PageType = "allDocs" | "articles" | "apiFinder" | "planningAgent";
 
@@ -22,7 +23,20 @@ interface Props {
 
 export default function Navbar({ defaultPage }: Props) {
     const [activeTab, setActiveTab] = useState(defaultPage)
+    const [isSearchModalOpen, setIsSearchModalOpen] = useState(false)
     const navigate = useNavigate();
+
+    useEffect(() => {
+        const handleKeyDown = (e: KeyboardEvent) => {
+            if (e.key === "/" && !isSearchModalOpen) {
+                e.preventDefault();
+                setIsSearchModalOpen(true);
+            }
+        };
+
+        window.addEventListener("keydown", handleKeyDown);
+        return () => window.removeEventListener("keydown", handleKeyDown);
+    }, [isSearchModalOpen]);
 
     return (
         <>
@@ -82,6 +96,7 @@ export default function Navbar({ defaultPage }: Props) {
 
                 <div className="flex gap-4">
                     <button
+                        onClick={() => setIsSearchModalOpen(true)}
                         className="cursor-pointer flex justify-between items-center gap-2 w-60 px-3 py-1.5 font-semibold text-sm transition-all duration-200
                                 bg-white text-gray-700 border border-gray-300 hover:border-[#554DE2] hover:bg-[#554DE2]/5 hover:shadow-md">
                         <div className="flex gap-1 items-center">
@@ -91,7 +106,7 @@ export default function Navbar({ defaultPage }: Props) {
                         <div className="border border-gray-300 px-1.5 flex items-center justify-center">
                             <p className="mb-0.5">/</p>
                         </div>
-                        
+
                     </button>
                     <button className="cursor-pointer">
                         <img src={DarkMode} />
@@ -101,6 +116,11 @@ export default function Navbar({ defaultPage }: Props) {
                     </a>
                 </div>
             </nav>
+
+            <SearchModal
+                isOpen={isSearchModalOpen}
+                onClose={() => setIsSearchModalOpen(false)}
+            />
         </>
     )
 }
