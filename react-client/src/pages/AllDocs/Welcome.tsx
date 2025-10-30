@@ -178,7 +178,7 @@ export default function Welcome() {
                     ref={scrollbarRef}
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
-                    className="flex-1 flex flex-col pt-4 px-4 max-w-70 overflow-y-auto shrink-0 custom-scrollbar"
+                    className="flex-1 flex flex-col pt-6 px-4 max-w-70 overflow-y-auto shrink-0 custom-scrollbar"
                 >
                     <a target="_blank" href="https://github.com/traman2/codeatlas" className="cursor-pointer transition-all opacity-80 hover:opacity-100 hover:bg-gray-100 px-2 py-1 flex justify-between items-center">
                         <div className="flex items-center gap-2">
@@ -326,24 +326,23 @@ export default function Welcome() {
                 </div>
 
                 <div className="flex-1 overflow-y-auto content-scrollbar">
-                    <div className="flex pt-4 gap-4">
+                    <div className="flex pt-6 gap-4">
                         <div className="flex-1 flex justify-center">
                             <div className="max-w-170 px-4 pb-40">
                                 {renderDocs()}
                             </div>
                         </div>
-
-                        <div className="sticky top-4 self-start pl-2 min-w-70 hidden xl:block">
+                        <div className="sticky top-6 self-start pl-2 min-w-70 hidden xl:block">
                             <p className="text-[#4B5563] font-semibold mb-3">On this page</p>
                             <div className="flex flex-col">
                                 {sectionsWithTop.map((sec) => (
                                     <button
                                         key={sec.id}
                                         onClick={() => scrollToSection(sec.id)}
-                                        className={`text-left py-1 pl-3 border-l-2 transition-colors text-sm ${
+                                        className={`cursor-pointer text-left py-1 pl-3 border-l-2 transition-all text-sm ${
                                             activeSection === sec.id
                                                 ? "border-[#4f46ff] text-[#4f46ff] font-semibold"
-                                                : "border-gray-200 text-[#4B5563] hover:border-gray-400 hover:text-gray-900"
+                                                : "border-gray-200 text-[#4B5563] hover:text-gray-900"
                                         }`}
                                     >
                                         {sec.title}

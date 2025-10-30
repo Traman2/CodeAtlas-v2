@@ -25,14 +25,10 @@
 }
 
 .custom-scrollbar.scrollbar-visible::-webkit-scrollbar-thumb {
-    background: #110b8c;
-}
-
-.custom-scrollbar.scrollbar-visible::-webkit-scrollbar-thumb:active {
-    background: #0d0866;
+    background: #554DE2;
 }
 
 .content-scrollbar {
   scrollbar-width: thin;
-  scrollbar-color: #110b8c #F9FAFB;
+  scrollbar-color: #554DE2 #F9FAFB;
 }
