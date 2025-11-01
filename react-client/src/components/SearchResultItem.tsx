@@ -9,7 +9,7 @@ interface SearchResultItemProps {
     isSelected: boolean;
     onClick: () => void;
     onMouseEnter: () => void;
-    onShowPreview: (content: string, rect: DOMRect) => void;
+    onShowPreview: (content: React.ReactNode, rect: DOMRect) => void;
     onHidePreview: () => void;
 }
 
@@ -34,7 +34,8 @@ export function SearchResultItem({
 
     const getPreviewText = () => {
         const words = guide.searchableContent.trim().split(/\s+/);
-        return words.slice(0, 20).join(' ') + (words.length > 20 ? '...' : '');
+        const preview = words.slice(0, 20).join(' ') + (words.length > 20 ? '...' : '');
+        return highlightMatches(preview, query);
     };
 
     const handleMouseEnter = () => {

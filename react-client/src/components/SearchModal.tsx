@@ -11,7 +11,7 @@ interface SearchModalProps {
 }
 
 interface PreviewState {
-    content: string;
+    content: React.ReactNode;
     top: number;
     left: number;
     visible: boolean;
@@ -126,7 +126,7 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
         onClose();
     };
 
-    const handleShowPreview = (content: string, rect: DOMRect) => {
+    const handleShowPreview = (content: React.ReactNode, rect: DOMRect) => {
         setPreview({
             content,
             top: rect.top,
