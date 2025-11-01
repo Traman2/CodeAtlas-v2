@@ -54,7 +54,7 @@ export function SearchResultItem({
         >
             <div
                 className={`
-                    px-4 py-3 cursor-pointer transition-all mx-4 rounded-lg 
+                    px-4 py-3 cursor-pointer transition-all rounded-lg 
                     ${isSelected
                         ? 'bg-blue-100'
                         : 'bg-white hover:bg-gray-50'
@@ -71,13 +71,10 @@ export function SearchResultItem({
                     />
                     <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-2 mb-1">
-                            <span className="text-xs font-semibold text-[#4f46ff] uppercase">
-                                {guide.category}
+                            <span className="font-semibold text-[#4f46ff] ">
+                                {guide.title}
                             </span>
                         </div>
-                        <h3 className="font-semibold text-gray-900 mb-2">
-                            {highlightMatches(guide.title, query)}
-                        </h3>
                         <div className="flex flex-wrap gap-1.5">
                             {guide.keywords.slice(0, 4).map((keyword, idx) => (
                                 <span

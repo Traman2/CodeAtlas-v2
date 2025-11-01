@@ -181,7 +181,7 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
 
                     <div className="max-h-[60vh] overflow-y-auto">
                         {results.length > 0 ? (
-                            <div className="my-2">
+                            <div className="py-2 px-2">
                                 {results.map((result, index) => (
                                     <SearchResultItem
                                         key={result.guide.id}
