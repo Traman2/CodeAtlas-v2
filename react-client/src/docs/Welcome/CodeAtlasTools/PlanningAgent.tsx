@@ -1,7 +1,36 @@
+import type { GuideMetadata } from '../../../types/GuideMetadata';
+
 export const sections = [
     { id: "key-features", title: "Key Features" },
     { id: "use-cases", title: "Use Cases" }
 ]
+
+export const metadata: GuideMetadata = {
+    id: 'planningagent',
+    title: 'Planning Agent',
+    category: 'WELCOME',
+    path: '/alldocs/welcome/planningagent',
+    keywords: ['planning', 'agent', 'tech stack', 'architecture', 'ai', 'project', 'roadmap', 'technology selection'],
+    description: 'An intelligent assistant to help you plan and architect your software projects. Generate structured project plans with technology recommendations.',
+    searchableContent: `
+        CODE ATLAS TOOLS
+        Planning Agent
+        An intelligent assistant to help you plan and architect your software projects. The Planning Agent analyzes requirements and generates structured project plans with technology recommendations.
+        Key Features
+        Project Architecture
+        Get recommendations for system architecture based on your project requirements. Includes suggestions for frontend, backend, database, and infrastructure choices.
+        Technology Stack Selection
+        Receive personalized technology stack recommendations based on project scope, team size, timeline, and scalability requirements.
+        Task Breakdown
+        Break down complex projects into manageable tasks and milestones. Get estimated timelines and dependencies between tasks.
+        Use Cases
+        Planning new application development
+        Modernizing legacy systems
+        Evaluating technology alternatives
+        Creating development roadmaps
+        Estimating project timelines and resources
+    `.trim()
+};
 
 export default function PlanningAgentDocs() {
     return (

@@ -1,7 +1,33 @@
+import type { GuideMetadata } from '../../../types/GuideMetadata';
+
 export const sections = [
     { id: "navigate-by-category", title: "Navigate by Category" },
     { id: "getting-started-guide", title: "Getting Started Guide" }
 ]
+
+export const metadata: GuideMetadata = {
+    id: 'welcome-howtouse',
+    title: 'How to Use Code Atlas',
+    category: 'WELCOME',
+    path: '/alldocs/welcome/howtouse',
+    keywords: ['how to use', 'tutorial', 'guide', 'instructions', 'navigation', 'getting started'],
+    description: 'Learn how to effectively use Code Atlas to find documentation for all common technologies.',
+    searchableContent: `
+        GET STARTED
+        How to use Code Atlas
+        Look at the multitude of documents that contain information on getting started with all the common technologies. These are all the current docs for every tech stack, so the database might not contain what you're looking for yet.
+        Navigate by Category
+        Devices: Web Dev, Mobile, Desktop
+        App Logic: Cloud, Backend, Deployment, Data Analytics
+        Code Atlas Tools: API Finder, Planning Agent
+        Additional Resources
+        Getting Started Guide
+        Browse the navigation menu on the left to find your technology stack
+        Click on any section to view detailed documentation and resources
+        Use the search functionality to quickly find specific topics
+        Check out the Tools section for helpful utilities like API Finder
+    `.trim()
+};
 
 export default function DocsHowToUse() {
     return (

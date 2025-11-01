@@ -1,7 +1,36 @@
+import type { GuideMetadata } from '../../../types/GuideMetadata';
+
 export const sections = [
     { id: "backend-frameworks", title: "Backend Frameworks" },
     { id: "backend-essentials", title: "Backend Essentials" }
 ]
+
+export const metadata: GuideMetadata = {
+    id: 'backend',
+    title: 'Backend Development',
+    category: 'WELCOME',
+    path: '/alldocs/welcome/backend',
+    keywords: ['backend', 'server', 'api', 'node', 'express', 'fastapi', 'django', 'rest', 'graphql', 'flask', 'spring boot'],
+    description: 'Master server-side development with various languages and frameworks. Build robust APIs, manage databases, and implement authentication and authorization.',
+    searchableContent: `
+        APP LOGIC
+        Backend Development
+        Master server-side development with various languages and frameworks. Build robust APIs, manage databases, and implement authentication and authorization.
+        Backend Frameworks
+        Node.js & Express
+        JavaScript runtime for server-side development. Build fast, scalable APIs with Express.js and the Node.js ecosystem.
+        Django & Flask
+        Python web frameworks for rapid development. Django offers batteries-included approach while Flask provides flexibility and simplicity.
+        Spring Boot
+        Java framework for building production-ready applications. Enterprise-grade features with convention over configuration.
+        Backend Essentials
+        RESTful API design and GraphQL
+        Database management (SQL and NoSQL)
+        Authentication with JWT and OAuth
+        Caching strategies with Redis
+        Message queues and background jobs
+    `.trim()
+};
 
 export default function BackendDocs() {
     return (

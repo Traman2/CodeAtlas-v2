@@ -1,7 +1,36 @@
+import type { GuideMetadata } from '../../../types/GuideMetadata';
+
 export const sections = [
     { id: "popular-frameworks", title: "Popular Frameworks" },
     { id: "essential-tools", title: "Essential Tools" }
 ]
+
+export const metadata: GuideMetadata = {
+    id: 'webdev',
+    title: 'Web Development',
+    category: 'WELCOME',
+    path: '/alldocs/welcome/webdev',
+    keywords: ['web', 'react', 'vue', 'angular', 'frontend', 'frameworks', 'javascript', 'typescript', 'vite', 'webpack', 'tailwind', 'rest', 'graphql', 'jest', 'testing'],
+    description: 'Comprehensive guides and resources for modern web development. From frontend frameworks to backend APIs, discover everything you need to build scalable web applications.',
+    searchableContent: `
+        DEVICES
+        Web Development
+        Comprehensive guides and resources for modern web development. From frontend frameworks to backend APIs, discover everything you need to build scalable web applications.
+        Popular Frameworks
+        React
+        A JavaScript library for building user interfaces. Learn about hooks, components, state management, and best practices for React development.
+        Vue.js
+        Progressive JavaScript framework for building web interfaces. Explore the composition API, reactive data, and Vue ecosystem tools.
+        Angular
+        Platform for building web applications with TypeScript. Discover dependency injection, modules, and the Angular CLI.
+        Essential Tools
+        Vite & Webpack for bundling and building
+        TypeScript for type-safe development
+        Tailwind CSS for utility-first styling
+        REST APIs and GraphQL for data fetching
+        Testing with Jest and React Testing Library
+    `.trim()
+};
 
 export default function WebDevDocs() {
     return (

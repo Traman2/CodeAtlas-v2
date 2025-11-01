@@ -1,7 +1,35 @@
+import type { GuideMetadata } from '../../../types/GuideMetadata';
+
 export const sections = [
     { id: "core-components", title: "Core Components" },
     { id: "feature-categories", title: "Feature Categories" }
 ]
+
+export const metadata: GuideMetadata = {
+    id: 'welcome-componentsummary',
+    title: 'Component Summary',
+    category: 'WELCOME',
+    path: '/alldocs/welcome/componentsummary',
+    keywords: ['components', 'summary', 'overview', 'features', 'navigation', 'documentation viewer'],
+    description: 'Summary of available components and features in Code Atlas platform.',
+    searchableContent: `
+        GET STARTED
+        Component Summary
+        This section provides an overview of all the major components and features available in Code Atlas. Understanding these components will help you navigate and utilize the platform more effectively.
+        Core Components
+        Navigation Menu
+        The left sidebar contains all navigation links organized by category. Categories include Devices, App Logic, Tools, and Additional Resources.
+        Documentation Viewer
+        The main content area displays documentation for your selected topic. Each doc includes code examples, best practices, and helpful resources.
+        Quick Links Panel
+        The right sidebar shows quick links to sections within the current page, making it easy to jump to specific topics.
+        Feature Categories
+        Device Documentation: Web Development, Mobile Apps, Desktop Applications
+        Application Logic: Cloud Services, Backend Systems, Deployment Strategies
+        Data & Analytics: Data processing, visualization, and analytics tools
+        Developer Tools: API Finder, Planning Agent, and productivity utilities
+    `.trim()
+};
 
 export default function ComponentSummary() {
     return (

@@ -1,7 +1,36 @@
+import type { GuideMetadata } from '../../../types/GuideMetadata';
+
 export const sections = [
     { id: "analytics-platforms", title: "Analytics Platforms" },
     { id: "data-technologies", title: "Data Technologies" }
 ]
+
+export const metadata: GuideMetadata = {
+    id: 'dataanalytics',
+    title: 'Data Analytics',
+    category: 'WELCOME',
+    path: '/alldocs/welcome/dataanalytics',
+    keywords: ['data', 'analytics', 'metrics', 'monitoring', 'tracking', 'insights', 'pandas', 'spark', 'tableau', 'power bi'],
+    description: 'Explore data processing, analysis, and visualization tools. Learn how to extract insights from data using modern analytics platforms and libraries.',
+    searchableContent: `
+        APP LOGIC
+        Data Analytics
+        Explore data processing, analysis, and visualization tools. Learn how to extract insights from data using modern analytics platforms and libraries.
+        Analytics Platforms
+        Python Data Stack
+        Powerful libraries for data analysis. Work with Pandas for data manipulation, NumPy for numerical computing, and Matplotlib/Seaborn for visualization.
+        Apache Spark
+        Unified analytics engine for large-scale data processing. Handle big data workloads with distributed computing capabilities.
+        Tableau & Power BI
+        Business intelligence and visualization tools. Create interactive dashboards and reports for data-driven decision making.
+        Data Technologies
+        SQL and database querying techniques
+        Data warehousing with Snowflake and Redshift
+        Real-time analytics with streaming platforms
+        Machine learning integration
+        ETL pipelines and data orchestration
+    `.trim()
+};
 
 export default function DataAnalyticsDocs() {
     return (

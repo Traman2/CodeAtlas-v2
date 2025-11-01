@@ -1,7 +1,36 @@
+import type { GuideMetadata } from '../../../types/GuideMetadata';
+
 export const sections = [
     { id: "deployment-platforms", title: "Deployment Platforms" },
     { id: "devops-practices", title: "DevOps Practices" }
 ]
+
+export const metadata: GuideMetadata = {
+    id: 'deployment',
+    title: 'Deployment & DevOps',
+    category: 'WELCOME',
+    path: '/alldocs/welcome/deployment',
+    keywords: ['deployment', 'ci/cd', 'docker', 'kubernetes', 'devops', 'production', 'vercel', 'netlify', 'github actions'],
+    description: 'Learn deployment strategies, CI/CD pipelines, and DevOps best practices. Automate your deployment workflow and ensure reliable releases.',
+    searchableContent: `
+        APP LOGIC
+        Deployment & DevOps
+        Learn deployment strategies, CI/CD pipelines, and DevOps best practices. Automate your deployment workflow and ensure reliable releases.
+        Deployment Platforms
+        Vercel & Netlify
+        Modern platforms for frontend deployments. Deploy static sites and serverless functions with automatic HTTPS and global CDN.
+        Docker & Kubernetes
+        Containerization and orchestration tools. Package applications in containers and manage them at scale with Kubernetes.
+        GitHub Actions & GitLab CI
+        CI/CD platforms integrated with version control. Automate testing, building, and deployment workflows.
+        DevOps Practices
+        Continuous Integration and Continuous Deployment
+        Infrastructure monitoring and alerting
+        Blue-green and canary deployments
+        Configuration management with Ansible
+        Load balancing and auto-scaling
+    `.trim()
+};
 
 export default function DeploymentDocs() {
     return (

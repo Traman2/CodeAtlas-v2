@@ -1,7 +1,37 @@
+import type { GuideMetadata } from '../../../types/GuideMetadata';
+
 export const sections = [
     { id: "how-to-use-api-finder", title: "How to Use API Finder" },
     { id: "popular-api-categories", title: "Popular API Categories" }
 ]
+
+export const metadata: GuideMetadata = {
+    id: 'apifinder',
+    title: 'API Finder',
+    category: 'WELCOME',
+    path: '/alldocs/welcome/apifinder',
+    keywords: ['api', 'finder', 'tool', 'search', 'discover', 'payment', 'maps', 'weather', 'stripe', 'paypal'],
+    description: 'Discover and explore APIs for your projects. The API Finder helps you search through thousands of public APIs across various categories.',
+    searchableContent: `
+        CODE ATLAS TOOLS
+        API Finder
+        Discover and explore APIs for your projects. The API Finder helps you search through thousands of public APIs across various categories to integrate third-party services into your applications.
+        How to Use API Finder
+        Search by Category
+        Browse APIs organized by category such as Weather, Finance, Social Media, Maps, Authentication, and more. Filter results to find exactly what you need.
+        API Documentation
+        View detailed documentation for each API including endpoints, authentication methods, rate limits, and example requests/responses.
+        Integration Examples
+        Get started quickly with code examples in multiple programming languages. See how to authenticate and make your first API call.
+        Popular API Categories
+        Payment Processing (Stripe, PayPal, Square)
+        Maps & Geolocation (Google Maps, Mapbox)
+        Weather & Climate Data
+        Social Media Integration
+        Email & SMS Services
+        Authentication & Authorization
+    `.trim()
+};
 
 export default function APIFinderDocs() {
     return (

@@ -1,7 +1,36 @@
+import type { GuideMetadata } from '../../../types/GuideMetadata';
+
 export const sections = [
     { id: "cross-platform-frameworks", title: "Cross-Platform Frameworks" },
     { id: "native-technologies", title: "Native Technologies" }
 ]
+
+export const metadata: GuideMetadata = {
+    id: 'desktop',
+    title: 'Desktop Development',
+    category: 'WELCOME',
+    path: '/alldocs/welcome/desktop',
+    keywords: ['desktop', 'electron', 'tauri', 'native', 'windows', 'macos', 'linux', 'wpf', 'qt', 'gtk', '.net maui'],
+    description: 'Create powerful desktop applications for Windows, macOS, and Linux. Learn about cross-platform frameworks and native development approaches.',
+    searchableContent: `
+        DEVICES
+        Desktop Development
+        Create powerful desktop applications for Windows, macOS, and Linux. Learn about cross-platform frameworks and native development approaches.
+        Cross-Platform Frameworks
+        Electron
+        Build desktop apps with web technologies. Create applications using JavaScript, HTML, and CSS with access to native APIs.
+        Tauri
+        Lightweight alternative to Electron using Rust. Build smaller, faster desktop applications with better security.
+        .NET MAUI
+        Multi-platform App UI framework from Microsoft. Build apps for Windows, macOS, iOS, and Android from a single codebase.
+        Native Technologies
+        Qt for C++ desktop applications
+        WPF and WinForms for Windows apps
+        SwiftUI for macOS applications
+        GTK for Linux desktop apps
+        Auto-updaters and distribution strategies
+    `.trim()
+};
 
 export default function DesktopDocs() {
     return (

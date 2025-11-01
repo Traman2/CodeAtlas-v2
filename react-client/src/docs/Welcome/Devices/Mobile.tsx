@@ -1,7 +1,36 @@
+import type { GuideMetadata } from '../../../types/GuideMetadata';
+
 export const sections = [
     { id: "cross-platform-frameworks", title: "Cross-Platform Frameworks" },
     { id: "native-development", title: "Native Development" }
 ]
+
+export const metadata: GuideMetadata = {
+    id: 'mobile',
+    title: 'Mobile Development',
+    category: 'WELCOME',
+    path: '/alldocs/welcome/mobile',
+    keywords: ['mobile', 'ios', 'android', 'react native', 'flutter', 'swift', 'kotlin', 'ionic', 'swiftui', 'jetpack compose'],
+    description: 'Build native and cross-platform mobile applications for iOS and Android. Explore frameworks, tools, and best practices for mobile app development.',
+    searchableContent: `
+        DEVICES
+        Mobile Development
+        Build native and cross-platform mobile applications for iOS and Android. Explore frameworks, tools, and best practices for mobile app development.
+        Cross-Platform Frameworks
+        React Native
+        Build mobile apps using React and JavaScript. Learn about native modules, navigation, and platform-specific code.
+        Flutter
+        Google's UI toolkit for building natively compiled applications. Explore widgets, state management, and Dart programming language.
+        Ionic
+        Hybrid mobile app framework using web technologies. Build once and deploy to iOS, Android, and the web.
+        Native Development
+        Swift and SwiftUI for iOS development
+        Kotlin and Jetpack Compose for Android
+        Mobile UI/UX design patterns
+        Push notifications and background tasks
+        App store deployment and distribution
+    `.trim()
+};
 
 export default function MobileDocs() {
     return (

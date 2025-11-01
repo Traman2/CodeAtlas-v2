@@ -1,7 +1,36 @@
+import type { GuideMetadata } from '../../../types/GuideMetadata';
+
 export const sections = [
     { id: "major-cloud-providers", title: "Major Cloud Providers" },
     { id: "cloud-technologies", title: "Cloud Technologies" }
 ]
+
+export const metadata: GuideMetadata = {
+    id: 'cloud',
+    title: 'Cloud Services',
+    category: 'WELCOME',
+    path: '/alldocs/welcome/cloud',
+    keywords: ['cloud', 'aws', 'azure', 'gcp', 'google cloud', 'hosting', 'serverless', 'lambda', 'kubernetes', 'terraform'],
+    description: 'Learn about cloud platforms and services for deploying and scaling your applications. Explore infrastructure as code, serverless computing, and cloud-native architectures.',
+    searchableContent: `
+        APP LOGIC
+        Cloud Services
+        Learn about cloud platforms and services for deploying and scaling your applications. Explore infrastructure as code, serverless computing, and cloud-native architectures.
+        Major Cloud Providers
+        Amazon Web Services (AWS)
+        The most comprehensive cloud platform. Learn about EC2, S3, Lambda, RDS, and other essential AWS services for building scalable applications.
+        Google Cloud Platform (GCP)
+        Google's cloud computing services. Explore Compute Engine, Cloud Storage, BigQuery, and Kubernetes Engine for modern applications.
+        Microsoft Azure
+        Enterprise cloud platform from Microsoft. Discover Azure App Service, Azure Functions, and integration with Microsoft ecosystem.
+        Cloud Technologies
+        Serverless computing with Lambda and Cloud Functions
+        Container orchestration with Kubernetes
+        Infrastructure as Code with Terraform and CloudFormation
+        Cloud databases and storage solutions
+        Monitoring and logging with CloudWatch and Stackdriver
+    `.trim()
+};
 
 export default function CloudDocs() {
     return (

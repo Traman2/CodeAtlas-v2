@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-d
 import AllDocsMain from "./pages/AllDocs/AllDocsMain";
 import ArticlesMain from "./pages/Articles/ArticlesMain";
 import APIFinderMain from "./pages/APIFinder/APIFinderMain";
-import PlanningAgentMain from "./pages/PlanningAgent/PlanningAgenMain";
+import PlanningAgentMain from "./pages/PlanningAgent/PlanningAgentMain";
 import Welcome from "./pages/AllDocs/Welcome";
 import WebDev from "./pages/AllDocs/WebDev";
 import Mobile from "./pages/AllDocs/Mobile";

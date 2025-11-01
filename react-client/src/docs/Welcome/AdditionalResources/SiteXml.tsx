@@ -1,7 +1,36 @@
+import type { GuideMetadata } from '../../../types/GuideMetadata';
+
 export const sections = [
     { id: "what-is-a-sitemap", title: "What is a Sitemap?" },
     { id: "implementation-guide", title: "Implementation Guide" }
 ]
+
+export const metadata: GuideMetadata = {
+    id: 'sitexml',
+    title: 'Site XML & Sitemaps',
+    category: 'WELCOME',
+    path: '/alldocs/welcome/sitexml',
+    keywords: ['xml', 'sitemap', 'seo', 'metadata', 'google search console', 'crawlability', 'indexing'],
+    description: 'Understanding and utilizing XML sitemaps for your web applications. Learn how to generate, optimize, and submit sitemaps to improve SEO.',
+    searchableContent: `
+        ADDITIONAL RESOURCES
+        Site XML File
+        Understanding and utilizing XML sitemaps for your web applications. Learn how to generate, optimize, and submit sitemaps to improve your site's search engine visibility and crawlability.
+        What is a Sitemap?
+        Purpose and Benefits
+        XML sitemaps help search engines discover and index your website's pages. They provide metadata about each URL including last modification date, update frequency, and priority.
+        Sitemap Structure
+        Learn the XML structure of sitemaps including URL entries, namespaces, and optional tags. Understand best practices for organizing large sitemaps.
+        Generation Tools
+        Discover tools and libraries for automatically generating sitemaps in various frameworks like Next.js, Django, and WordPress.
+        Implementation Guide
+        Creating XML sitemaps for static and dynamic sites
+        Submitting sitemaps to Google Search Console
+        Handling large sitemaps with sitemap indexes
+        Image and video sitemaps for rich content
+        Monitoring sitemap errors and coverage
+    `.trim()
+};
 
 export default function SiteXmlDocs() {
     return (

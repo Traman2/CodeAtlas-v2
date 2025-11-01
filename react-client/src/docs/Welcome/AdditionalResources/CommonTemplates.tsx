@@ -1,7 +1,37 @@
+import type { GuideMetadata } from '../../../types/GuideMetadata';
+
 export const sections = [
     { id: "template-categories", title: "Template Categories" },
     { id: "available-templates", title: "Available Templates" }
 ]
+
+export const metadata: GuideMetadata = {
+    id: 'commontemplates',
+    title: 'Common Templates Repository',
+    category: 'WELCOME',
+    path: '/alldocs/welcome/commontemplates',
+    keywords: ['templates', 'boilerplate', 'starter', 'examples', 'mern', 'mean', 'jamstack', 'nextjs', 'react'],
+    description: 'Access a curated collection of project templates and boilerplates to kickstart your development. Save time with pre-configured setups.',
+    searchableContent: `
+        ADDITIONAL RESOURCES
+        Common Templates Repository
+        Access a curated collection of project templates and boilerplates to kickstart your development. Save time with pre-configured setups for common technology stacks and project types.
+        Template Categories
+        Web Application Templates
+        Ready-to-use templates for React, Vue, Angular, and Next.js applications. Includes routing, state management, and styling setups.
+        Backend API Templates
+        Node.js, Django, Flask, and Spring Boot templates with authentication, database connections, and API structure pre-configured.
+        Full-Stack Templates
+        Complete application templates with frontend and backend integrated. Includes MERN, MEAN, and JAMstack configurations.
+        Available Templates
+        React + TypeScript + Tailwind CSS starter
+        Next.js with authentication and database
+        Express.js REST API with JWT auth
+        Django REST framework template
+        Mobile app templates for React Native
+        Electron desktop app boilerplate
+    `.trim()
+};
 
 export default function CommonTemplatesDocs() {
     return (

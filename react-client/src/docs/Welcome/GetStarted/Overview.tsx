@@ -1,10 +1,43 @@
 import { useNavigate } from "react-router-dom"
 import { Icon } from "@iconify/react";
+import type { GuideMetadata } from '../../../types/GuideMetadata';
 
 export const sections = [
     { id: "what-you-find", title: "What You'll Find" },
     { id: "how-to-navigate", title: "How to Navigate" },
 ]
+
+export const metadata: GuideMetadata = {
+    id: 'welcome-overview',
+    title: 'What is Code Atlas?',
+    category: 'WELCOME',
+    path: '/alldocs/welcome/overview',
+    keywords: ['getting started', 'overview', 'introduction', 'code atlas', 'what is', 'navigate', 'search'],
+    description: 'Introduction to Code Atlas and how to navigate the documentation hub for developers.',
+    searchableContent: `
+        GET STARTED
+        What is Code Atlas?
+        The only docs you need to get started with full stack
+        Code Atlas is your comprehensive documentation hub designed specifically for developers who want quick access to essential programming concepts without getting lost in overwhelming documentation. Whether you're just starting your software engineering journey or need a quick reference for specific topics, Code Atlas provides curated, concise guides that get you up to speed fast.
+        What You'll Find in Code Atlas
+        Code Atlas is organized into clear categories covering the full spectrum of software development topics.
+        Web Concepts Basic guides to React, Svelte, Vue and more
+        Backend Implementation guides to Node, Express, Django and more
+        Hosting guides to AWS, Azure, Vercel and more
+        Design Principals guides to UI/UX and accessibility
+        Each category contains carefully curated guides that focus on practical application while ensuring you understand the underlying concepts. Code examples, common pitfalls, and real-world use cases are included throughout.
+        How to Navigate Code Atlas
+        Code Atlas is designed to help you find exactly what you need, whether you're exploring new technologies or diving deep into specific topics.
+        Search for Guides Instantly
+        Use the search bar at the top to quickly find specific guides, technologies, or concepts. Get instant results as you type.
+        Browse a Huge Catalog of Common Technologies
+        Explore our extensive collection of guides covering frontend frameworks, backend technologies, databases, hosting platforms, and more through the sidebar navigation.
+        Find Relevant Docs from the Current Guide
+        Each guide builds progressively on previous concepts, allowing you to follow a structured learning path. While you can skip ahead if needed, following the sequence ensures a solid foundation.
+        Explore Additional Tools
+        Take advantage of specialized features like the API Finder to discover common APIs for your projects, and the Planning Agent to generate complete tech stack plans based on your requirements.
+    `.trim()
+};
 
 export default function DocsOverview() {
     const navigate = useNavigate();
