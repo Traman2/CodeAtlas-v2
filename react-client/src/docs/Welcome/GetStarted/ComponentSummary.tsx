@@ -13,7 +13,6 @@ export const metadata: GuideMetadata = {
     keywords: ['components', 'summary', 'overview', 'features', 'navigation', 'documentation viewer'],
     description: 'Summary of available components and features in Code Atlas platform.',
     searchableContent: `
-        GET STARTED
         Component Summary
         This section provides an overview of all the major components and features available in Code Atlas. Understanding these components will help you navigate and utilize the platform more effectively.
         Core Components

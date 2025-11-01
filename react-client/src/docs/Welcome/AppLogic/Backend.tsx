@@ -13,7 +13,6 @@ export const metadata: GuideMetadata = {
     keywords: ['backend', 'server', 'api', 'node', 'express', 'fastapi', 'django', 'rest', 'graphql', 'flask', 'spring boot'],
     description: 'Master server-side development with various languages and frameworks. Build robust APIs, manage databases, and implement authentication and authorization.',
     searchableContent: `
-        APP LOGIC
         Backend Development
         Master server-side development with various languages and frameworks. Build robust APIs, manage databases, and implement authentication and authorization.
         Backend Frameworks

@@ -15,7 +15,6 @@ export const metadata: GuideMetadata = {
     keywords: ['getting started', 'overview', 'introduction', 'code atlas', 'what is', 'navigate', 'search'],
     description: 'Introduction to Code Atlas and how to navigate the documentation hub for developers.',
     searchableContent: `
-        GET STARTED
         What is Code Atlas?
         The only docs you need to get started with full stack
         Code Atlas is your comprehensive documentation hub designed specifically for developers who want quick access to essential programming concepts without getting lost in overwhelming documentation. Whether you're just starting your software engineering journey or need a quick reference for specific topics, Code Atlas provides curated, concise guides that get you up to speed fast.

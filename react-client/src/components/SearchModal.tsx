@@ -10,6 +10,13 @@ interface SearchModalProps {
     onClose: () => void;
 }
 
+interface PreviewState {
+    content: string;
+    top: number;
+    left: number;
+    visible: boolean;
+}
+
 export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
     const inputRef = useRef<HTMLInputElement>(null);
     const navigate = useNavigate();
@@ -17,39 +24,74 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
     const [query, setQuery] = useState("");
     const [results, setResults] = useState<SearchResult[]>([]);
     const [selectedIndex, setSelectedIndex] = useState(0);
-    const [isSearching, setIsSearching] = useState(false);
+    const [isInitialSearch, setIsInitialSearch] = useState(false);
+    const [showUpdating, setShowUpdating] = useState(false);
+    const [preview, setPreview] = useState<PreviewState>({
+        content: "",
+        top: 0,
+        left: 0,
+        visible: false,
+    });
 
-    // Focus input and reset state when modal opens
+    const updateTimerRef = useRef<number | null>(null);
+
     useEffect(() => {
         if (isOpen && inputRef.current) {
             inputRef.current.focus();
             setQuery("");
             setResults([]);
             setSelectedIndex(0);
+            setIsInitialSearch(false);
+            setShowUpdating(false);
+            setPreview(prev => ({ ...prev, visible: false }));
         }
+
+        return () => {
+            if (updateTimerRef.current) {
+                clearTimeout(updateTimerRef.current);
+                updateTimerRef.current = null;
+            }
+        };
     }, [isOpen]);
 
-    // Handle search with debouncing
     useEffect(() => {
+        if (updateTimerRef.current) {
+            clearTimeout(updateTimerRef.current);
+        }
+        setShowUpdating(false);
+
         if (!query.trim()) {
             setResults([]);
             setSelectedIndex(0);
-            setIsSearching(false);
+            setIsInitialSearch(false);
             return;
         }
 
-        setIsSearching(true);
+        if (results.length > 0) {
+            updateTimerRef.current = setTimeout(() => setShowUpdating(true), 1500);
+        } else {
+            setIsInitialSearch(true);
+        }
+
         const timeoutId = setTimeout(() => {
             const searchResults = searchGuides(query);
             setResults(searchResults);
             setSelectedIndex(0);
-            setIsSearching(false);
-        }, 150); // 150ms debounce
+            setIsInitialSearch(false);
+            setShowUpdating(false);
+            if (updateTimerRef.current) {
+                clearTimeout(updateTimerRef.current);
+            }
+        }, 150);
 
-        return () => clearTimeout(timeoutId);
+        return () => {
+            clearTimeout(timeoutId);
+            if (updateTimerRef.current) {
+                clearTimeout(updateTimerRef.current);
+            }
+        };
     }, [query]);
 
-    // Handle keyboard navigation
     useEffect(() => {
         const handleKeyDown = (e: KeyboardEvent) => {
             if (!isOpen) return;
@@ -60,9 +102,7 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
                     break;
                 case "ArrowDown":
                     e.preventDefault();
-                    setSelectedIndex(prev =>
-                        Math.min(prev + 1, results.length - 1)
-                    );
+                    setSelectedIndex(prev => Math.min(prev + 1, results.length - 1));
                     break;
                 case "ArrowUp":
                     e.preventDefault();
@@ -86,126 +126,111 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
         onClose();
     };
 
+    const handleShowPreview = (content: string, rect: DOMRect) => {
+        setPreview({
+            content,
+            top: rect.top,
+            left: rect.right + 8, // Position to the right of the item
+            visible: true,
+        });
+    };
+
+    const handleHidePreview = () => {
+        setPreview(prev => ({ ...prev, visible: false }));
+    };
+
     if (!isOpen) return null;
 
     return (
-        <div
-            className="fixed inset-0 backdrop-blur-md z-50 flex items-start justify-center pt-32 px-4 transition-all"
-            onClick={onClose}
-        >
+        <>
             <div
-                className="bg-white shadow-2xl w-full max-w-160 rounded-lg overflow-hidden"
-                onClick={(e) => e.stopPropagation()}
+                className="fixed inset-0 backdrop-blur-md z-50 flex items-start justify-center pt-32 px-4 transition-all"
+                onClick={onClose}
             >
-                {/* Search Input */}
-                <div className="flex items-center gap-3 px-4 py-3 border-b border-gray-200">
-                    <Icon
-                        icon="material-symbols:search"
-                        width="24"
-                        height="24"
-                        className="text-gray-400"
-                    />
-                    <input
-                        ref={inputRef}
-                        type="text"
-                        value={query}
-                        onChange={(e) => setQuery(e.target.value)}
-                        placeholder="Search for guides, technologies, or concepts..."
-                        className="flex-1 text-lg outline-none text-gray-700 placeholder-gray-400"
-                    />
-                    {query && (
-                        <button
-                            onClick={() => setQuery("")}
-                            className="text-gray-400 hover:text-gray-600 transition-colors"
-                        >
-                            <Icon icon="material-symbols:close" width="20" height="20" />
-                        </button>
-                    )}
-                    <button
-                        onClick={onClose}
-                        className="cursor-pointer"
-                    >
-                        <div className="flex items-center gap-1.5">
-                            <kbd className="px-2 py-1 hover:bg-gray-100 text-gray-500 border border-gray-300 rounded text-xs font-semibold transition-all">
+                <div
+                    className="bg-white shadow-2xl w-160 overflow-hidden"
+                    onClick={(e) => e.stopPropagation()}
+                >
+                    <div className="flex items-center gap-3 px-4 py-3 border-b border-gray-200">
+                        <Icon icon="material-symbols:search" width="24" height="24" className="text-gray-400" />
+                        <input
+                            ref={inputRef}
+                            type="text"
+                            value={query}
+                            onChange={(e) => setQuery(e.target.value)}
+                            placeholder="Search for guides, technologies, or concepts..."
+                            className="flex-1 text-lg outline-none text-gray-700 placeholder-gray-400"
+                        />
+                        {query && (
+                            <button onClick={() => setQuery("")} className="text-gray-400 hover:text-gray-600">
+                                <Icon icon="material-symbols:close" width="20" height="20" />
+                            </button>
+                        )}
+                        {showUpdating && (
+                            <div className="flex items-center gap-2 text-xs text-gray-500">
+                                <Icon icon="eos-icons:loading" width="16" height="16" className="text-[#4f46ff]" />
+                                <span>Updating...</span>
+                            </div>
+                        )}
+                        <button onClick={onClose} className="cursor-pointer">
+                            <kbd className="px-2 py-1 hover:bg-gray-100 text-gray-500 border border-gray-300 rounded text-xs font-semibold">
                                 Esc
                             </kbd>
-                        </div>
-                    </button>
-                </div>
-
-                {/* Results Area */}
-                <div className="max-h-[60vh] overflow-y-auto">
-                    {/* Loading State */}
-                    {isSearching && (
-                        <div className="flex items-center justify-center py-12">
-                            <Icon
-                                icon="eos-icons:loading"
-                                width="32"
-                                height="32"
-                                className="text-[#4f46ff]"
-                            />
-                        </div>
-                    )}
-
-                    {/* Empty State */}
-                    {!query && !isSearching && (
-                        <div className="text-center py-12 text-gray-400 px-4">
-                            <Icon
-                                icon="material-symbols:search"
-                                width="48"
-                                height="48"
-                                className="mx-auto mb-3 opacity-30"
-                            />
-                            <p>Start typing to search...</p>
-                            <p className="text-sm mt-2 text-gray-500">
-                                Search across all guides, frameworks, and technologies
-                            </p>
-                        </div>
-                    )}
-
-                    {/* No Results */}
-                    {query && !isSearching && results.length === 0 && (
-                        <div className="text-center py-12 text-gray-400 px-4">
-                            <Icon
-                                icon="material-symbols:search-off"
-                                width="48"
-                                height="48"
-                                className="mx-auto mb-3 opacity-30"
-                            />
-                            <p className="font-semibold text-gray-600">
-                                No results found for "{query}"
-                            </p>
-                            <p className="text-sm mt-2">
-                                Try different keywords or browse the categories
-                            </p>
-                        </div>
-                    )}
-
-                    {/* Results List */}
-                    {!isSearching && results.length > 0 && (
-                        <div className="divide-y divide-gray-100">
-                            {results.map((result, index) => (
-                                <SearchResultItem
-                                    key={result.guide.id}
-                                    result={result}
-                                    query={query}
-                                    isSelected={index === selectedIndex}
-                                    onClick={() => handleSelectResult(result)}
-                                />
-                            ))}
-                        </div>
-                    )}
-                </div>
-
-                {/* Footer with result count */}
-                {results.length > 0 && (
-                    <div className="px-4 py-3 border-t border-gray-200 bg-gray-50 text-center">
-                        <span className="text-xs text-gray-500">
-                            {results.length} result{results.length !== 1 ? 's' : ''} found
-                        </span>
+                        </button>
                     </div>
-                )}
+
+                    <div className="max-h-[60vh] overflow-y-auto">
+                        {results.length > 0 ? (
+                            <div className="my-2">
+                                {results.map((result, index) => (
+                                    <SearchResultItem
+                                        key={result.guide.id}
+                                        result={result}
+                                        query={query}
+                                        isSelected={index === selectedIndex}
+                                        onClick={() => handleSelectResult(result)}
+                                        onMouseEnter={() => setSelectedIndex(index)}
+                                        onShowPreview={handleShowPreview}
+                                        onHidePreview={handleHidePreview}
+                                    />
+                                ))}
+                            </div>
+                        ) : (
+                            <div className="text-center py-12 text-gray-400 px-4">
+                                {isInitialSearch ? (
+                                    <Icon icon="eos-icons:loading" width="32" height="32" className="text-[#4f46ff] mx-auto" />
+                                ) : (
+                                    <>
+                                        <Icon
+                                            icon={query ? "material-symbols:search-off" : "material-symbols:search"}
+                                            width="48"
+                                            height="48"
+                                            className="mx-auto mb-3 opacity-30"
+                                        />
+                                        <p className="font-semibold text-gray-600">
+                                            {query ? `No results for "${query}"` : "Start typing to search"}
+                                        </p>
+                                        <p className="text-sm mt-2">
+                                            {query ? "Try different keywords" : "Search all guides and concepts"}
+                                        </p>
+                                    </>
+                                )}
+                            </div>
+                        )}
+                    </div>
+                </div>
             </div>
-        </div>
+
+            {preview.visible && (
+                <div
+                    className="fixed min-w-50 max-w-90 mr-20 bg-[#fdfcfe] border border-gray-200 shadow-xl rounded-lg p-4 z-100"
+                    style={{ top: preview.top, left: preview.left }}
+                >
+                    <p className="text-sm text-[#4f46ff] leading-relaxed">
+                        {preview.content}
+                    </p>
+                </div>
+            )}
+        </>
     );
 }

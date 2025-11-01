@@ -13,7 +13,6 @@ export const metadata: GuideMetadata = {
     keywords: ['data', 'analytics', 'metrics', 'monitoring', 'tracking', 'insights', 'pandas', 'spark', 'tableau', 'power bi'],
     description: 'Explore data processing, analysis, and visualization tools. Learn how to extract insights from data using modern analytics platforms and libraries.',
     searchableContent: `
-        APP LOGIC
         Data Analytics
         Explore data processing, analysis, and visualization tools. Learn how to extract insights from data using modern analytics platforms and libraries.
         Analytics Platforms

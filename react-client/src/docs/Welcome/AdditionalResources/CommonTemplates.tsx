@@ -13,7 +13,6 @@ export const metadata: GuideMetadata = {
     keywords: ['templates', 'boilerplate', 'starter', 'examples', 'mern', 'mean', 'jamstack', 'nextjs', 'react'],
     description: 'Access a curated collection of project templates and boilerplates to kickstart your development. Save time with pre-configured setups.',
     searchableContent: `
-        ADDITIONAL RESOURCES
         Common Templates Repository
         Access a curated collection of project templates and boilerplates to kickstart your development. Save time with pre-configured setups for common technology stacks and project types.
         Template Categories

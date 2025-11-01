@@ -13,7 +13,6 @@ export const metadata: GuideMetadata = {
     keywords: ['api', 'finder', 'tool', 'search', 'discover', 'payment', 'maps', 'weather', 'stripe', 'paypal'],
     description: 'Discover and explore APIs for your projects. The API Finder helps you search through thousands of public APIs across various categories.',
     searchableContent: `
-        CODE ATLAS TOOLS
         API Finder
         Discover and explore APIs for your projects. The API Finder helps you search through thousands of public APIs across various categories to integrate third-party services into your applications.
         How to Use API Finder

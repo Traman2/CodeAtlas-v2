@@ -13,7 +13,6 @@ export const metadata: GuideMetadata = {
     keywords: ['planning', 'agent', 'tech stack', 'architecture', 'ai', 'project', 'roadmap', 'technology selection'],
     description: 'An intelligent assistant to help you plan and architect your software projects. Generate structured project plans with technology recommendations.',
     searchableContent: `
-        CODE ATLAS TOOLS
         Planning Agent
         An intelligent assistant to help you plan and architect your software projects. The Planning Agent analyzes requirements and generates structured project plans with technology recommendations.
         Key Features

@@ -13,7 +13,6 @@ export const metadata: GuideMetadata = {
     keywords: ['desktop', 'electron', 'tauri', 'native', 'windows', 'macos', 'linux', 'wpf', 'qt', 'gtk', '.net maui'],
     description: 'Create powerful desktop applications for Windows, macOS, and Linux. Learn about cross-platform frameworks and native development approaches.',
     searchableContent: `
-        DEVICES
         Desktop Development
         Create powerful desktop applications for Windows, macOS, and Linux. Learn about cross-platform frameworks and native development approaches.
         Cross-Platform Frameworks

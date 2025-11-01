@@ -13,7 +13,6 @@ export const metadata: GuideMetadata = {
     keywords: ['xml', 'sitemap', 'seo', 'metadata', 'google search console', 'crawlability', 'indexing'],
     description: 'Understanding and utilizing XML sitemaps for your web applications. Learn how to generate, optimize, and submit sitemaps to improve SEO.',
     searchableContent: `
-        ADDITIONAL RESOURCES
         Site XML File
         Understanding and utilizing XML sitemaps for your web applications. Learn how to generate, optimize, and submit sitemaps to improve your site's search engine visibility and crawlability.
         What is a Sitemap?

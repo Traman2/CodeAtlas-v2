@@ -13,7 +13,6 @@ export const metadata: GuideMetadata = {
     keywords: ['web', 'react', 'vue', 'angular', 'frontend', 'frameworks', 'javascript', 'typescript', 'vite', 'webpack', 'tailwind', 'rest', 'graphql', 'jest', 'testing'],
     description: 'Comprehensive guides and resources for modern web development. From frontend frameworks to backend APIs, discover everything you need to build scalable web applications.',
     searchableContent: `
-        DEVICES
         Web Development
         Comprehensive guides and resources for modern web development. From frontend frameworks to backend APIs, discover everything you need to build scalable web applications.
         Popular Frameworks

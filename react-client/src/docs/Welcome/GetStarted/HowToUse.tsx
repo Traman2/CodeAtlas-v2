@@ -13,7 +13,6 @@ export const metadata: GuideMetadata = {
     keywords: ['how to use', 'tutorial', 'guide', 'instructions', 'navigation', 'getting started'],
     description: 'Learn how to effectively use Code Atlas to find documentation for all common technologies.',
     searchableContent: `
-        GET STARTED
         How to use Code Atlas
         Look at the multitude of documents that contain information on getting started with all the common technologies. These are all the current docs for every tech stack, so the database might not contain what you're looking for yet.
         Navigate by Category

@@ -1,72 +1,101 @@
 import { Icon } from "@iconify/react";
+import { useRef } from "react";
 import type { SearchResult } from "../utils/searchUtils";
 import { highlightMatches } from "../utils/searchUtils";
 
 interface SearchResultItemProps {
-  result: SearchResult;
-  query: string;
-  isSelected: boolean;
-  onClick: () => void;
+    result: SearchResult;
+    query: string;
+    isSelected: boolean;
+    onClick: () => void;
+    onMouseEnter: () => void;
+    onShowPreview: (content: string, rect: DOMRect) => void;
+    onHidePreview: () => void;
 }
 
 export function SearchResultItem({
-  result,
-  query,
-  isSelected,
-  onClick
+    result,
+    query,
+    isSelected,
+    onClick,
+    onMouseEnter,
+    onShowPreview,
+    onHidePreview,
 }: SearchResultItemProps) {
-  const { guide, matches } = result;
+    const { guide } = result;
+    const itemRef = useRef<HTMLDivElement>(null);
 
-  // Get icon based on category
-  const getCategoryIcon = (category: string): string => {
-    const icons: Record<string, string> = {
-      'WELCOME': 'material-symbols:rocket-launch',
+    const getCategoryIcon = (category: string): string => {
+        const icons: Record<string, string> = {
+            'WELCOME': 'material-symbols:rocket-launch',
+        };
+        return icons[category] || 'material-symbols:article';
     };
-    return icons[category] || 'material-symbols:article';
-  };
 
-  return (
-    <div
-      className={`
-        px-4 py-3 cursor-pointer border-l-4 transition-all
-        ${isSelected
-          ? 'bg-blue-50 border-l-[#4f46ff]'
-          : 'bg-white border-l-transparent hover:bg-gray-50'
+    const getPreviewText = () => {
+        const words = guide.searchableContent.trim().split(/\s+/);
+        return words.slice(0, 20).join(' ') + (words.length > 20 ? '...' : '');
+    };
+
+    const handleMouseEnter = () => {
+        onMouseEnter();
+        if (itemRef.current) {
+            onShowPreview(getPreviewText(), itemRef.current.getBoundingClientRect());
         }
-      `}
-      onClick={onClick}
-    >
-      <div className="flex items-start gap-3">
-        <Icon
-          icon={getCategoryIcon(guide.category)}
-          width="20"
-          height="20"
-          className="text-[#4f46ff] mt-1 shrink-0"
-        />
-        <div className="flex-1 min-w-0">
-          <div className="flex items-center gap-2 mb-1">
-            <span className="text-xs font-semibold text-[#4f46ff] uppercase">
-              {guide.category}
-            </span>
-            <span className="text-xs text-gray-400">•</span>
-            <span className="text-xs text-gray-500">
-              {matches.length} match{matches.length !== 1 ? 'es' : ''}
-            </span>
-          </div>
-          <h3 className="font-semibold text-gray-900 mb-1">
-            {highlightMatches(guide.title, query)}
-          </h3>
-          <p className="text-sm text-gray-600 line-clamp-2">
-            {highlightMatches(matches[0].context, query)}
-          </p>
+    };
+
+    return (
+        <div
+            ref={itemRef}
+            className="relative"
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={onHidePreview}
+        >
+            <div
+                className={`
+                    px-4 py-3 cursor-pointer transition-all mx-4 rounded-lg 
+                    ${isSelected
+                        ? 'bg-blue-100'
+                        : 'bg-white hover:bg-gray-50'
+                    }
+                `}
+                onClick={onClick}
+            >
+                <div className="flex items-start gap-3">
+                    <Icon
+                        icon={getCategoryIcon(guide.category)}
+                        width="20"
+                        height="20"
+                        className="text-[#4f46ff] mt-1 shrink-0"
+                    />
+                    <div className="flex-1 min-w-0">
+                        <div className="flex items-center gap-2 mb-1">
+                            <span className="text-xs font-semibold text-[#4f46ff] uppercase">
+                                {guide.category}
+                            </span>
+                        </div>
+                        <h3 className="font-semibold text-gray-900 mb-2">
+                            {highlightMatches(guide.title, query)}
+                        </h3>
+                        <div className="flex flex-wrap gap-1.5">
+                            {guide.keywords.slice(0, 4).map((keyword, idx) => (
+                                <span
+                                    key={idx}
+                                    className="px-2 py-0.5 bg-gray-100 text-gray-600 text-xs rounded"
+                                >
+                                    {keyword}
+                                </span>
+                            ))}
+                        </div>
+                    </div>
+                    <Icon
+                        icon="material-symbols:chevron-right"
+                        width="20"
+                        height="20"
+                        className="text-gray-400 mt-1 shrink-0"
+                    />
+                </div>
+            </div>
         </div>
-        <Icon
-          icon="material-symbols:chevron-right"
-          width="20"
-          height="20"
-          className="text-gray-400 mt-1 shrink-0"
-        />
-      </div>
-    </div>
-  );
+    );
 }

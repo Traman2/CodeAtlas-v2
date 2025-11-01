@@ -13,7 +13,6 @@ export const metadata: GuideMetadata = {
     keywords: ['cloud', 'aws', 'azure', 'gcp', 'google cloud', 'hosting', 'serverless', 'lambda', 'kubernetes', 'terraform'],
     description: 'Learn about cloud platforms and services for deploying and scaling your applications. Explore infrastructure as code, serverless computing, and cloud-native architectures.',
     searchableContent: `
-        APP LOGIC
         Cloud Services
         Learn about cloud platforms and services for deploying and scaling your applications. Explore infrastructure as code, serverless computing, and cloud-native architectures.
         Major Cloud Providers

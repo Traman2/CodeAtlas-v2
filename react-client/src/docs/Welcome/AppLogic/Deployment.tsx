@@ -13,7 +13,6 @@ export const metadata: GuideMetadata = {
     keywords: ['deployment', 'ci/cd', 'docker', 'kubernetes', 'devops', 'production', 'vercel', 'netlify', 'github actions'],
     description: 'Learn deployment strategies, CI/CD pipelines, and DevOps best practices. Automate your deployment workflow and ensure reliable releases.',
     searchableContent: `
-        APP LOGIC
         Deployment & DevOps
         Learn deployment strategies, CI/CD pipelines, and DevOps best practices. Automate your deployment workflow and ensure reliable releases.
         Deployment Platforms

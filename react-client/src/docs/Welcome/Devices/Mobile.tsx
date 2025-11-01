@@ -13,7 +13,6 @@ export const metadata: GuideMetadata = {
     keywords: ['mobile', 'ios', 'android', 'react native', 'flutter', 'swift', 'kotlin', 'ionic', 'swiftui', 'jetpack compose'],
     description: 'Build native and cross-platform mobile applications for iOS and Android. Explore frameworks, tools, and best practices for mobile app development.',
     searchableContent: `
-        DEVICES
         Mobile Development
         Build native and cross-platform mobile applications for iOS and Android. Explore frameworks, tools, and best practices for mobile app development.
         Cross-Platform Frameworks

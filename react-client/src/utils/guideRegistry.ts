@@ -1,6 +1,8 @@
 import type { GuideMetadata } from '../types/GuideMetadata';
 
 // Dynamic imports for all guides
+
+// AllDocs/Welcome
 import * as Overview from '../docs/Welcome/GetStarted/Overview';
 import * as HowToUse from '../docs/Welcome/GetStarted/HowToUse';
 import * as ComponentSummary from '../docs/Welcome/GetStarted/ComponentSummary';
@@ -15,6 +17,10 @@ import * as APIFinder from '../docs/Welcome/CodeAtlasTools/APIFinder';
 import * as PlanningAgent from '../docs/Welcome/CodeAtlasTools/PlanningAgent';
 import * as CommonTemplates from '../docs/Welcome/AdditionalResources/CommonTemplates';
 import * as SiteXml from '../docs/Welcome/AdditionalResources/SiteXml';
+
+// AllDocs/WebDev
+
+// AllDocs/ and so on...
 
 const guideModules = [
     Overview,
