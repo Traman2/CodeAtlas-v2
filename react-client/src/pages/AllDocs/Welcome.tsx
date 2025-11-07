@@ -69,7 +69,7 @@ export default function Welcome() {
             case "sitexml":
                 return siteXmlSections
             default:
-                return []
+                return [{ id: "", title: "" }]
         }
     }
 
@@ -328,7 +328,7 @@ export default function Welcome() {
                 <div className="flex-1 overflow-y-auto content-scrollbar">
                     <div className="flex pt-6 gap-4">
                         <div className="flex-1 flex justify-center">
-                            <div className="max-w-170 px-4 pb-40">
+                            <div className="max-w-170 w-full px-4 pb-40">
                                 {renderDocs()}
                             </div>
                         </div>

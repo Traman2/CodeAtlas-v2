@@ -35,10 +35,8 @@ export function searchGuides(query: string): SearchResult[] {
       const contextStart = Math.max(0, index - 50);
       const contextEnd = Math.min(content.length, index + query.length + 50);
 
-      // Get context with original casing
       let context = content.substring(contextStart, contextEnd).trim();
 
-      // Add ellipsis if context is truncated
       if (contextStart > 0) context = '...' + context;
       if (contextEnd < content.length) context = context + '...';
 
@@ -60,8 +58,7 @@ export function searchGuides(query: string): SearchResult[] {
       });
     }
   });
-
-  // Sort by relevance score (descending)
+  
   return results.sort((a, b) => b.score - a.score);
 }
 

@@ -1,8 +1,11 @@
+import { useNavigate } from "react-router-dom";
+import { Icon } from "@iconify/react";
 import type { GuideMetadata } from '../../../types/GuideMetadata';
 
 export const sections = [
     { id: "popular-frameworks", title: "Popular Frameworks" },
-    { id: "essential-tools", title: "Essential Tools" }
+    { id: "essential-tools", title: "Essential Tools" },
+    { id: "next-steps", title: "Next Steps" }
 ]
 
 export const metadata: GuideMetadata = {
@@ -32,6 +35,8 @@ export const metadata: GuideMetadata = {
 };
 
 export default function WebDevDocs() {
+    const navigate = useNavigate();
+
     return (
         <>
             <p className="text-[#4f46ff] font-semibold text-sm">DEVICES</p>
@@ -75,6 +80,30 @@ export default function WebDevDocs() {
                 <li>REST APIs and GraphQL for data fetching</li>
                 <li>Testing with Jest and React Testing Library</li>
             </ul>
+
+            <h2 id="next-steps" className="text-2xl font-semibold mt-12 mb-4">
+                Ready to Dive Deeper?
+            </h2>
+
+            <p className="mt-4 mb-6 leading-relaxed">
+                Now that you understand the basics of web development, explore our comprehensive Web Development
+                section for in-depth guides, tutorials, and best practices across all the frameworks and tools
+                mentioned above.
+            </p>
+
+            <button
+                onClick={() => navigate("/alldocs/webdev")}
+                className="w-full px-6 py-4 bg-[#554DE2]/5 border border-[#554DE2] hover:bg-[#554DE2]/10 transition-all flex items-center justify-between group cursor-pointer"
+            >
+                <div className="flex items-center gap-4">
+                    <Icon icon="teenyicons:react-outline" width="40" height="40" className="text-[#554DE2]" />
+                    <div className="flex flex-col items-start">
+                        <h3 className="font-semibold text-lg text-left">Explore Web Development Guides</h3>
+                        <p className="text-[#6b7280] text-left">Deep dive into React, Vue, Angular, and modern web technologies</p>
+                    </div>
+                </div>
+                <Icon icon="mdi:arrow-right" width="24" height="24" className="text-[#554DE2] group-hover:translate-x-1 transition-transform" />
+            </button>
         </>
     )
 }
