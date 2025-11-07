@@ -6,7 +6,6 @@ import OpenOutside from "/allDocs/OpenOutside.svg"
 
 import Overview, { sections as overviewSections } from "../../docs/Welcome/GetStarted/Overview"
 import HowToUse, { sections as howToUseSections } from "../../docs/Welcome/GetStarted/HowToUse"
-import ComponentSummary, { sections as componentSummarySections } from "../../docs/Welcome/GetStarted/ComponentSummary"
 import WebDevDocs, { sections as webDevSections } from "../../docs/Welcome/Devices/WebDev"
 import MobileDocs, { sections as mobileSections } from "../../docs/Welcome/Devices/Mobile"
 import DesktopDocs, { sections as desktopSections } from "../../docs/Welcome/Devices/Desktop"
@@ -44,8 +43,6 @@ export default function Welcome() {
                 return overviewSections
             case "howtouse":
                 return howToUseSections
-            case "componentsummary":
-                return componentSummarySections
             case "webdev":
                 return webDevSections
             case "mobile":
@@ -142,8 +139,6 @@ export default function Welcome() {
                 return <Overview />
             case "howtouse":
                 return <HowToUse />
-            case "componentsummary":
-                return <ComponentSummary />
             case "webdev":
                 return <WebDevDocs />
             case "mobile":
@@ -206,16 +201,7 @@ export default function Welcome() {
                     >
                         How to use
                     </button>
-                    <button
-                        onClick={() => navigate("/alldocs/welcome/componentsummary")}
-                        className={`${section === "componentsummary"
-                            ? "text-[#110b8c] font-semibold bg-[#eae9ff]"
-                            : "text-[#4B5563]"
-                            } cursor-pointer transition-all opacity-80 hover:opacity-100 hover:bg-gray-100 px-2 py-1 flex justify-between items-center`}
-                    >
-                        Component summary
-                    </button>
-
+                    
                     <h1 className="px-2 font-semibold text-gray-800 uppercase text-sm mt-6 mb-3">Devices</h1>
                     <button
                         onClick={() => navigate("/alldocs/welcome/webdev")}

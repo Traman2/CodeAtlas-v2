@@ -2,8 +2,6 @@ import { useNavigate } from "react-router-dom"
 import { Icon } from "@iconify/react";
 import type { GuideMetadata } from '../../../types/GuideMetadata';
 
-import CodeAtlasMainLogo from "/global/CodeAtlasMainLogo.svg";
-
 export const sections = [
     { id: "what-you-find", title: "What You'll Find" },
     { id: "how-to-navigate", title: "How to Navigate" },
@@ -55,7 +53,7 @@ export default function DocsOverview() {
             </p>
 
             <div className="w-full flex justify-center mb-20">
-                <img src={CodeAtlasMainLogo} className="w-90" />
+                <Icon icon="streamline-pixel:computer-old-electronics-bug" className="w-70 h-70 text-[#4f46ff]"/>
             </div>
             
 

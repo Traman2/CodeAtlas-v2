@@ -5,7 +5,6 @@ import type { GuideMetadata } from '../types/GuideMetadata';
 // AllDocs/Welcome
 import * as Overview from '../docs/Welcome/GetStarted/Overview';
 import * as HowToUse from '../docs/Welcome/GetStarted/HowToUse';
-import * as ComponentSummary from '../docs/Welcome/GetStarted/ComponentSummary';
 import * as WebDev from '../docs/Welcome/Devices/WebDev';
 import * as Mobile from '../docs/Welcome/Devices/Mobile';
 import * as Desktop from '../docs/Welcome/Devices/Desktop';
@@ -25,7 +24,6 @@ import * as SiteXml from '../docs/Welcome/AdditionalResources/SiteXml';
 const guideModules = [
     Overview,
     HowToUse,
-    ComponentSummary,
     WebDev,
     Mobile,
     Desktop,
