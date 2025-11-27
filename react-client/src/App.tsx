@@ -21,9 +21,12 @@ function App() {
           <Route path="alldocs" element={<AllDocsMain />}>
             <Route path="welcome/:section" element={<Welcome />} />
             <Route path="welcome" element={<Navigate to="/alldocs/welcome/overview" replace />} /> {/* Default section route for welcome page */}
-            <Route path="webdev" element={<WebDev />} />
-            <Route path="mobile" element={<Mobile />} />
-            <Route path="desktop" element={<Desktop />} />
+            <Route path="webdev/:section" element={<WebDev />} />
+            <Route path="webdev" element={<Navigate to="/alldocs/webdev/overview" replace />} /> {/* Default section route for webdev page */}
+            <Route path="mobile/:section" element={<Mobile />} />
+            <Route path="mobile" element={<Navigate to="/alldocs/mobile/overview" replace />} /> {/* Default section route for mobile page */}
+            <Route path="desktop/:section" element={<Desktop />} />
+            <Route path="desktop" element={<Navigate to="/alldocs/desktop/overview" replace />} /> {/* Default section route for desktop page */}
             <Route path="cloud" element={<Cloud />} />
             <Route path="backend" element={<Backend />} />
             <Route path="deployment" element={<Deployment />} />

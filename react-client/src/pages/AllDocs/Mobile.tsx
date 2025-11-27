@@ -1,8 +1,18 @@
 import { useRef, useState, useEffect } from "react"
-import { useParams, useNavigate } from "react-router-dom"
+import { useParams, useNavigate, Navigate } from "react-router-dom"
 
 import GithubGray from "/allDocs/GithubGray.svg"
 import OpenOutside from "/allDocs/OpenOutside.svg"
+
+import Overview, { sections as overviewSections } from "../../docs/Mobile/GetStarted/Overview"
+import Comparison, { sections as comparisonSections } from "../../docs/Mobile/GetStarted/Comparison"
+import ReactNativeDocs, { sections as reactNativeSections } from "../../docs/Mobile/Frameworks/ReactNative"
+import FlutterDocs, { sections as flutterSections } from "../../docs/Mobile/Frameworks/Flutter"
+import ExpoDocs, { sections as expoSections } from "../../docs/Mobile/Frameworks/Expo"
+import KotlinDocs, { sections as kotlinSections } from "../../docs/Mobile/Native/Kotlin"
+import SwiftDocs, { sections as swiftSections } from "../../docs/Mobile/Native/Swift"
+import AndroidStudioDocs, { sections as androidStudioSections } from "../../docs/Mobile/Tools/AndroidStudio"
+import XcodeDocs, { sections as xcodeSections } from "../../docs/Mobile/Tools/Xcode"
 
 export default function Mobile() {
     const { section } = useParams<{ section: string }>()
@@ -24,6 +34,24 @@ export default function Mobile() {
 
     function getSections() {
         switch (section) {
+            case "overview":
+                return overviewSections
+            case "comparison":
+                return comparisonSections
+            case "react-native":
+                return reactNativeSections
+            case "flutter":
+                return flutterSections
+            case "expo":
+                return expoSections
+            case "kotlin":
+                return kotlinSections
+            case "swift":
+                return swiftSections
+            case "android-studio":
+                return androidStudioSections
+            case "xcode":
+                return xcodeSections
             default:
                 return [{ id: "", title: "" }]
         }
@@ -91,6 +119,31 @@ export default function Mobile() {
         }
     }
 
+    function renderDocs() {
+        switch (section) {
+            case "overview":
+                return <Overview />
+            case "comparison":
+                return <Comparison />
+            case "react-native":
+                return <ReactNativeDocs />
+            case "flutter":
+                return <FlutterDocs />
+            case "expo":
+                return <ExpoDocs />
+            case "kotlin":
+                return <KotlinDocs />
+            case "swift":
+                return <SwiftDocs />
+            case "android-studio":
+                return <AndroidStudioDocs />
+            case "xcode":
+                return <XcodeDocs />
+            default:
+                return <Navigate to="/alldocs/mobile/overview" replace />
+        }
+    }
+
     return (
         <>
             <div className="flex flex-1 h-full overflow-hidden">
@@ -109,22 +162,100 @@ export default function Mobile() {
                     </a>
                     <h1 className="px-2 font-semibold text-gray-800 uppercase text-sm mt-6 mb-3">Get Started</h1>
                     <button
-                        onClick={() => navigate("/alldocs/welcome/overview")}
+                        onClick={() => navigate("/alldocs/mobile/overview")}
                         className={`${section === "overview"
                             ? "text-[#110b8c] font-semibold bg-[#eae9ff]"
                             : "text-[#4B5563]"
                             } cursor-pointer transition-all opacity-80 hover:opacity-100 hover:bg-gray-100 px-2 py-1 flex justify-between items-center`}
                     >
-                        No Links
+                        Overview
+                    </button>
+                    <button
+                        onClick={() => navigate("/alldocs/mobile/comparison")}
+                        className={`${section === "comparison"
+                            ? "text-[#110b8c] font-semibold bg-[#eae9ff]"
+                            : "text-[#4B5563]"
+                            } cursor-pointer transition-all opacity-80 hover:opacity-100 hover:bg-gray-100 px-2 py-1 flex justify-between items-center`}
+                    >
+                        Comparison
+                    </button>
+                    
+                    <h1 className="px-2 font-semibold text-gray-800 uppercase text-sm mt-6 mb-3">Frameworks</h1>
+                    <button
+                        onClick={() => navigate("/alldocs/mobile/react-native")}
+                        className={`${section === "react-native"
+                            ? "text-[#110b8c] font-semibold bg-[#eae9ff]"
+                            : "text-[#4B5563]"
+                            } cursor-pointer transition-all opacity-80 hover:opacity-100 hover:bg-gray-100 px-2 py-1 flex justify-between items-center`}
+                    >
+                        React Native
+                    </button>
+                    <button
+                        onClick={() => navigate("/alldocs/mobile/flutter")}
+                        className={`${section === "flutter"
+                            ? "text-[#110b8c] font-semibold bg-[#eae9ff]"
+                            : "text-[#4B5563]"
+                            } cursor-pointer transition-all opacity-80 hover:opacity-100 hover:bg-gray-100 px-2 py-1 flex justify-between items-center`}
+                    >
+                        Flutter
+                    </button>
+                    <button
+                        onClick={() => navigate("/alldocs/mobile/expo")}
+                        className={`${section === "expo"
+                            ? "text-[#110b8c] font-semibold bg-[#eae9ff]"
+                            : "text-[#4B5563]"
+                            } cursor-pointer transition-all opacity-80 hover:opacity-100 hover:bg-gray-100 px-2 py-1 flex justify-between items-center`}
+                    >
+                        Expo
+                    </button>
+                    
+                    <h1 className="px-2 font-semibold text-gray-800 uppercase text-sm mt-6 mb-3">Native Development</h1>
+                    <button
+                        onClick={() => navigate("/alldocs/mobile/kotlin")}
+                        className={`${section === "kotlin"
+                            ? "text-[#110b8c] font-semibold bg-[#eae9ff]"
+                            : "text-[#4B5563]"
+                            } cursor-pointer transition-all opacity-80 hover:opacity-100 hover:bg-gray-100 px-2 py-1 flex justify-between items-center`}
+                    >
+                        Kotlin & Android
+                    </button>
+                    <button
+                        onClick={() => navigate("/alldocs/mobile/swift")}
+                        className={`${section === "swift"
+                            ? "text-[#110b8c] font-semibold bg-[#eae9ff]"
+                            : "text-[#4B5563]"
+                            } cursor-pointer transition-all opacity-80 hover:opacity-100 hover:bg-gray-100 px-2 py-1 flex justify-between items-center`}
+                    >
+                        Swift & iOS
+                    </button>
+                    
+                    <h1 className="px-2 font-semibold text-gray-800 uppercase text-sm mt-6 mb-3">Tools</h1>
+                    <button
+                        onClick={() => navigate("/alldocs/mobile/android-studio")}
+                        className={`${section === "android-studio"
+                            ? "text-[#110b8c] font-semibold bg-[#eae9ff]"
+                            : "text-[#4B5563]"
+                            } cursor-pointer transition-all opacity-80 hover:opacity-100 hover:bg-gray-100 px-2 py-1 flex justify-between items-center`}
+                    >
+                        Android Studio
+                    </button>
+                    <button
+                        onClick={() => navigate("/alldocs/mobile/xcode")}
+                        className={`${section === "xcode"
+                            ? "text-[#110b8c] font-semibold bg-[#eae9ff]"
+                            : "text-[#4B5563]"
+                            } cursor-pointer transition-all opacity-80 hover:opacity-100 hover:bg-gray-100 px-2 py-1 flex justify-between items-center`}
+                    >
+                        Xcode
                     </button>
                     <div className="mb-12" />
                 </div>
 
                 <div className="flex-1 overflow-y-auto content-scrollbar">
                     <div className="flex pt-6 gap-4">
-                        <div className="flex-1 flex justify-center ">
+                        <div className="flex-1 flex justify-center">
                             <div className="max-w-170 w-full px-4 pb-40">
-                                No Mobile docs right now
+                                {renderDocs()}
                             </div>
                         </div>
                         <div className="sticky top-6 self-start pl-2 min-w-70 hidden xl:block">
@@ -134,10 +265,11 @@ export default function Mobile() {
                                     <button
                                         key={sec.id}
                                         onClick={() => scrollToSection(sec.id)}
-                                        className={`cursor-pointer text-left py-1 pl-3 border-l-2 transition-all text-sm ${activeSection === sec.id
+                                        className={`cursor-pointer text-left py-1 pl-3 border-l-2 transition-all text-sm ${
+                                            activeSection === sec.id
                                                 ? "border-[#4f46ff] text-[#4f46ff] font-semibold"
                                                 : "border-gray-200 text-[#4B5563] hover:text-gray-900"
-                                            }`}
+                                        }`}
                                     >
                                         {sec.title}
                                     </button>

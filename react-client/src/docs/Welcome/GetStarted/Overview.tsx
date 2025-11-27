@@ -53,7 +53,7 @@ export default function DocsOverview() {
             </p>
 
             <div className="w-full flex justify-center mb-20">
-                <Icon icon="streamline-pixel:computer-old-electronics-bug" className="w-70 h-70 text-[#4f46ff]"/>
+                <Icon icon="streamline-pixel:computer-old-electronics-bug" className="w-70 h-70 text-[#1d1884]"/>
             </div>
             
 

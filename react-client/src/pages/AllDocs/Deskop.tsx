@@ -1,8 +1,17 @@
 import { useRef, useState, useEffect } from "react"
-import { useParams, useNavigate } from "react-router-dom"
+import { useParams, useNavigate, Navigate } from "react-router-dom"
 
 import GithubGray from "/allDocs/GithubGray.svg"
 import OpenOutside from "/allDocs/OpenOutside.svg"
+
+import Overview, { sections as overviewSections } from "../../docs/Desktop/GetStarted/Overview"
+import Comparison, { sections as comparisonSections } from "../../docs/Desktop/GetStarted/Comparison"
+import ElectronDocs, { sections as electronSections } from "../../docs/Desktop/Frameworks/Electron"
+import TauriDocs, { sections as tauriSections } from "../../docs/Desktop/Frameworks/Tauri"
+import MacOSDocs, { sections as macSections } from "../../docs/Desktop/Native/MacOS"
+import DotNetDocs, { sections as dotnetSections } from "../../docs/Desktop/Microsoft/DotNet"
+import AspNetDocs, { sections as aspnetSections } from "../../docs/Desktop/Microsoft/ASPNET"
+import VisualStudioDocs, { sections as vsSections } from "../../docs/Desktop/Tools/VisualStudio"
 
 export default function Desktop() {
     const { section } = useParams<{ section: string }>()
@@ -24,6 +33,22 @@ export default function Desktop() {
 
     function getSections() {
         switch (section) {
+            case "overview":
+                return overviewSections
+            case "comparison":
+                return comparisonSections
+            case "electron":
+                return electronSections
+            case "tauri":
+                return tauriSections
+            case "macos":
+                return macSections
+            case "dotnet":
+                return dotnetSections
+            case "aspnet":
+                return aspnetSections
+            case "tools":
+                return vsSections
             default:
                 return [{ id: "", title: "" }]
         }
@@ -91,6 +116,29 @@ export default function Desktop() {
         }
     }
 
+    function renderDocs() {
+        switch (section) {
+            case "overview":
+                return <Overview />
+            case "comparison":
+                return <Comparison />
+            case "electron":
+                return <ElectronDocs />
+            case "tauri":
+                return <TauriDocs />
+            case "macos":
+                return <MacOSDocs />
+            case "dotnet":
+                return <DotNetDocs />
+            case "aspnet":
+                return <AspNetDocs />
+            case "tools":
+                return <VisualStudioDocs />
+            default:
+                return <Navigate to="/alldocs/desktop/overview" replace />
+        }
+    }
+
     return (
         <>
             <div className="flex flex-1 h-full overflow-hidden">
@@ -109,13 +157,84 @@ export default function Desktop() {
                     </a>
                     <h1 className="px-2 font-semibold text-gray-800 uppercase text-sm mt-6 mb-3">Get Started</h1>
                     <button
-                        onClick={() => navigate("/alldocs/welcome/overview")}
+                        onClick={() => navigate("/alldocs/desktop/overview")}
                         className={`${section === "overview"
                             ? "text-[#110b8c] font-semibold bg-[#eae9ff]"
                             : "text-[#4B5563]"
                             } cursor-pointer transition-all opacity-80 hover:opacity-100 hover:bg-gray-100 px-2 py-1 flex justify-between items-center`}
                     >
-                        No Links
+                        Overview
+                    </button>
+                    <button
+                        onClick={() => navigate("/alldocs/desktop/comparison")}
+                        className={`${section === "comparison"
+                            ? "text-[#110b8c] font-semibold bg-[#eae9ff]"
+                            : "text-[#4B5563]"
+                            } cursor-pointer transition-all opacity-80 hover:opacity-100 hover:bg-gray-100 px-2 py-1 flex justify-between items-center`}
+                    >
+                        Comparison
+                    </button>
+
+                    <h1 className="px-2 font-semibold text-gray-800 uppercase text-sm mt-6 mb-3">Frameworks</h1>
+                    <button
+                        onClick={() => navigate("/alldocs/desktop/electron")}
+                        className={`${section === "electron"
+                            ? "text-[#110b8c] font-semibold bg-[#eae9ff]"
+                            : "text-[#4B5563]"
+                            } cursor-pointer transition-all opacity-80 hover:opacity-100 hover:bg-gray-100 px-2 py-1 flex justify-between items-center`}
+                    >
+                        Electron
+                    </button>
+                    <button
+                        onClick={() => navigate("/alldocs/desktop/tauri")}
+                        className={`${section === "tauri"
+                            ? "text-[#110b8c] font-semibold bg-[#eae9ff]"
+                            : "text-[#4B5563]"
+                            } cursor-pointer transition-all opacity-80 hover:opacity-100 hover:bg-gray-100 px-2 py-1 flex justify-between items-center`}
+                    >
+                        Tauri
+                    </button>
+
+                    <h1 className="px-2 font-semibold text-gray-800 uppercase text-sm mt-6 mb-3">Native</h1>
+                    <button
+                        onClick={() => navigate("/alldocs/desktop/macos")}
+                        className={`${section === "macos"
+                            ? "text-[#110b8c] font-semibold bg-[#eae9ff]"
+                            : "text-[#4B5563]"
+                            } cursor-pointer transition-all opacity-80 hover:opacity-100 hover:bg-gray-100 px-2 py-1 flex justify-between items-center`}
+                    >
+                        macOS (SwiftUI/AppKit)
+                    </button>
+                    <button
+                        onClick={() => navigate("/alldocs/desktop/dotnet")}
+                        className={`${section === "dotnet"
+                            ? "text-[#110b8c] font-semibold bg-[#eae9ff]"
+                            : "text-[#4B5563]"
+                            } cursor-pointer transition-all opacity-80 hover:opacity-100 hover:bg-gray-100 px-2 py-1 flex justify-between items-center`}
+                    >
+                        .NET & WinUI
+                    </button>
+
+                    <h1 className="px-2 font-semibold text-gray-800 uppercase text-sm mt-6 mb-3">Microsoft Stack</h1>
+                    <button
+                        onClick={() => navigate("/alldocs/desktop/aspnet")}
+                        className={`${section === "aspnet"
+                            ? "text-[#110b8c] font-semibold bg-[#eae9ff]"
+                            : "text-[#4B5563]"
+                            } cursor-pointer transition-all opacity-80 hover:opacity-100 hover:bg-gray-100 px-2 py-1 flex justify-between items-center`}
+                    >
+                        ASP.NET APIs
+                    </button>
+
+                    <h1 className="px-2 font-semibold text-gray-800 uppercase text-sm mt-6 mb-3">Tools</h1>
+                    <button
+                        onClick={() => navigate("/alldocs/desktop/tools")}
+                        className={`${section === "tools"
+                            ? "text-[#110b8c] font-semibold bg-[#eae9ff]"
+                            : "text-[#4B5563]"
+                            } cursor-pointer transition-all opacity-80 hover:opacity-100 hover:bg-gray-100 px-2 py-1 flex justify-between items-center`}
+                    >
+                        Visual Studio & VS Code
                     </button>
                     <div className="mb-12" />
                 </div>
@@ -124,7 +243,7 @@ export default function Desktop() {
                     <div className="flex pt-6 gap-4">
                         <div className="flex-1 flex justify-center ">
                             <div className="max-w-170 w-full px-4 pb-40">
-                                No Desktop docs right now
+                                {renderDocs()}
                             </div>
                         </div>
                         <div className="sticky top-6 self-start pl-2 min-w-70 hidden xl:block">

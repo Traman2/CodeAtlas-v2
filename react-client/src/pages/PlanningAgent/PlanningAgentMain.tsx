@@ -4,7 +4,7 @@ export default function PlanningAgentMain() {
     return (
         <>
             <Navbar defaultPage="planningAgent"/>
-            PlanningAgent
+            Temperaroly unavailable. Scheduled Maintence. Please check back soon.
         </>
     )
 }
