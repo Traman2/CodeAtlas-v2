@@ -35,8 +35,8 @@ jobs:
       
       - name: Sync dist contents to S3
         run: |
-          aws s3 sync ./react-client/dist s3://code-atlas-s3-bucket-prod --delete
-      
+          aws s3 sync ./react-client/dist s3://code-atlas-s3-bucket-prod --delete --acl public-read
+
       - name: Invalidate CloudFront cache
         run: |
           aws cloudfront create-invalidation --distribution-id E2Z1Q5L3QFVRLC --paths "/*"
