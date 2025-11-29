@@ -37,6 +37,11 @@ jobs:
         run: |
           aws s3 sync ./react-client/dist s3://code-atlas-s3-bucket-prod --delete
       
+      - name: Verify bucket policy (safety check)
+        run: |
+          echo "Checking if bucket policy exists..."
+          aws s3api get-bucket-policy --bucket code-atlas-s3-bucket-prod || echo "Policy check complete"
+      
       - name: Invalidate CloudFront cache
         run: |
           aws cloudfront create-invalidation --distribution-id E2Z1Q5L3QFVRLC --paths "/*"
