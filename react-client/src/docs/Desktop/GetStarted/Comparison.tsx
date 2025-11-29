@@ -101,7 +101,7 @@ export default function DesktopComparison() {
                 </div>
                 <div className="px-6 py-4 bg-[#f6f6f6] border border-[#f0f0f0]">
                     <div className="flex items-center gap-3 mb-2">
-                        <Icon icon="mdi:apple" width="32" height="32" className="text-[#000]" />
+                        <Icon icon="mdi:apple" width="32" height="32" className="text-black" />
                         <h3 className="font-semibold text-lg">Native macOS</h3>
                     </div>
                     <p className="text-sm text-[#4B5563]">
@@ -236,7 +236,7 @@ export default function DesktopComparison() {
 
                 <div className="px-6 py-5 bg-[#f6f6f6] border border-[#f0f0f0]">
                     <div className="flex items-center gap-3 mb-3">
-                        <Icon icon="mdi:apple" width="32" height="32" className="text-[#000]" />
+                        <Icon icon="mdi:apple" width="32" height="32" className="text-black" />
                         <h3 className="font-semibold text-xl">Choose Native macOS When:</h3>
                     </div>
                     <ul className="space-y-2 text-[#4B5563]">

@@ -50,14 +50,6 @@ const learningCurveData = [
     { framework: 'Native', difficulty: 7, color: '#FA7343' }
 ];
 
-// Bundle size (in MB, approximate)
-const bundleSizeData = [
-    { framework: 'Native', size: 5, color: '#FA7343' },
-    { framework: 'Flutter', size: 8, color: '#0175C2' },
-    { framework: 'React Native', size: 12, color: '#61DAFB' },
-    { framework: 'Expo', size: 15, color: '#000020' }
-];
-
 // GitHub stars (in thousands, approximate)
 const popularityData = [
     { framework: 'React Native', stars: 120, color: '#61DAFB' },

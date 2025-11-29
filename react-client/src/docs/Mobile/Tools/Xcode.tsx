@@ -42,21 +42,6 @@ xcodebuild -version
 swift --version
 `;
 
-const createProject = `
-# Create new project in Xcode:
-# File > New > Project
-# Choose template:
-# - iOS > App (for SwiftUI)
-# - iOS > App (for UIKit)
-# Configure project:
-# - Product Name: MyApp
-# - Team: Your Apple Developer Team
-# - Organization Identifier: com.example
-# - Interface: SwiftUI (recommended)
-# - Language: Swift
-# - Storage: None (or Core Data if needed)
-`;
-
 const swiftUIPreview = `
 // ContentView.swift
 import SwiftUI

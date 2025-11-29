@@ -40,61 +40,6 @@ const installAS = `
 adb --version
 `;
 
-const createProject = `
-# Create new project in Android Studio:
-# File > New > New Project
-# Choose template (Empty Activity recommended)
-# Configure project:
-# - Name: MyApp
-# - Package name: com.example.myapp
-# - Language: Kotlin
-# - Minimum SDK: API 24 (Android 7.0)
-# - Build configuration: Gradle (Kotlin DSL)
-`;
-
-const gradleBuild = `
-// build.gradle.kts (Project level)
-plugins {
-    id("com.android.application") version "8.1.0" apply false
-    id("org.jetbrains.kotlin.android") version "1.9.0" apply false
-}
-
-// build.gradle.kts (App level)
-plugins {
-    id("com.android.application")
-    id("org.jetbrains.kotlin.android")
-}
-
-android {
-    namespace = "com.example.myapp"
-    compileSdk = 34
-
-    defaultConfig {
-        applicationId = "com.example.myapp"
-        minSdk = 24
-        targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
-    }
-
-    buildTypes {
-        release {
-            isMinifyEnabled = true
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
-        }
-    }
-}
-
-dependencies {
-    implementation("androidx.core:core-ktx:1.12.0")
-    implementation("androidx.compose.ui:ui:1.5.4")
-    // Add more dependencies
-}
-`;
-
 const emulatorSetup = `
 # Create Android Virtual Device (AVD)
 # Tools > Device Manager > Create Device

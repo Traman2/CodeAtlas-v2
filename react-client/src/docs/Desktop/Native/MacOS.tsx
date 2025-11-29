@@ -119,7 +119,7 @@ export default function MacOSDocs() {
             </p>
 
             <div className="w-full flex justify-center mb-20">
-                <Icon icon="mdi:apple" className="w-70 h-70 text-[#000]" />
+                <Icon icon="mdi:apple" className="w-70 h-70 text-black" />
             </div>
 
             <h2 id="overview" className="text-2xl font-semibold mt-12 mb-4">
