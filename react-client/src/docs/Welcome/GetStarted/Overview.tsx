@@ -49,7 +49,7 @@ export default function DocsOverview() {
             </h1>
 
             <p className="mt-4 mb-6 leading-relaxed text-lg">
-                Your friendly guide to learning the most popular frameworks and technologies
+                Your ultimate guide to learning the most popular frameworks and technologies
             </p>
 
             <div className="w-full flex justify-center mb-20">
