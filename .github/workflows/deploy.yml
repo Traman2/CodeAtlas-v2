@@ -19,9 +19,11 @@ jobs:
           node-version: '22'
       
       - name: Install dependencies
+        working-directory: ./react-client
         run: npm install
       
       - name: Build React app
+        working-directory: ./react-client
         run: npm run build
       
       - name: Configure AWS credentials
@@ -33,7 +35,7 @@ jobs:
       
       - name: Sync dist contents to S3
         run: |
-          aws s3 sync ./dist s3://code-atlas-s3-bucket-prod --delete
+          aws s3 sync ./react-client/dist s3://code-atlas-s3-bucket-prod --delete
       
       - name: Invalidate CloudFront cache
         run: |
