@@ -1,13 +1,43 @@
 import type { GuideMetadata } from '../types/GuideMetadata';
 
-// Dynamic imports for all guides
+// docs/WebDev
+import * as WebDevOverview from '../docs/WebDev/GetStarted/Overview';
+import * as WebDevComparison from '../docs/WebDev/GetStarted/Comparison';
+import * as React from '../docs/WebDev/Frameworks/React';
+import * as Vue from '../docs/WebDev/Frameworks/Vue';
+import * as Angular from '../docs/WebDev/Frameworks/Angular';
+import * as Tailwind from '../docs/WebDev/Tools/Tailwind';
+import * as Vite from '../docs/WebDev/Tools/Vite';
+import * as Recharts from '../docs/WebDev/Tools/Recharts';
+import * as Shadcn from '../docs/WebDev/Tools/Shadcn';
 
-// AllDocs/Welcome
-import * as Overview from '../docs/Welcome/GetStarted/Overview';
+// docs/Mobile
+import * as MobileOverview from '../docs/Mobile/GetStarted/Overview';
+import * as MobileComparison from '../docs/Mobile/GetStarted/Comparison';
+import * as ReactNative from '../docs/Mobile/Frameworks/ReactNative';
+import * as Flutter from '../docs/Mobile/Frameworks/Flutter';
+import * as Expo from '../docs/Mobile/Frameworks/Expo';
+import * as Kotlin from '../docs/Mobile/Native/Kotlin';
+import * as Swift from '../docs/Mobile/Native/Swift';
+import * as AndroidStudio from '../docs/Mobile/Tools/AndroidStudio';
+import * as Xcode from '../docs/Mobile/Tools/Xcode';
+
+// docs/Desktop
+import * as DesktopOverview from '../docs/Desktop/GetStarted/Overview';
+import * as DesktopComparison from '../docs/Desktop/GetStarted/Comparison';
+import * as Electron from '../docs/Desktop/Frameworks/Electron';
+import * as Tauri from '../docs/Desktop/Frameworks/Tauri';
+import * as MacOS from '../docs/Desktop/Native/MacOS';
+import * as DotNet from '../docs/Desktop/Microsoft/DotNet';
+import * as ASPNET from '../docs/Desktop/Microsoft/ASPNET';
+import * as VisualStudio from '../docs/Desktop/Tools/VisualStudio';
+
+// docs/Welcome
+import * as WelcomeOverview from '../docs/Welcome/GetStarted/Overview';
 import * as HowToUse from '../docs/Welcome/GetStarted/HowToUse';
-import * as WebDev from '../docs/Welcome/Devices/WebDev';
-import * as Mobile from '../docs/Welcome/Devices/Mobile';
-import * as Desktop from '../docs/Welcome/Devices/Desktop';
+import * as WelcomeWebDev from '../docs/Welcome/Devices/WebDev';
+import * as WelcomeMobile from '../docs/Welcome/Devices/Mobile';
+import * as WelcomeDesktop from '../docs/Welcome/Devices/Desktop';
 import * as Cloud from '../docs/Welcome/AppLogic/Cloud';
 import * as Backend from '../docs/Welcome/AppLogic/Backend';
 import * as Deployment from '../docs/Welcome/AppLogic/Deployment';
@@ -17,16 +47,42 @@ import * as PlanningAgent from '../docs/Welcome/CodeAtlasTools/PlanningAgent';
 import * as CommonTemplates from '../docs/Welcome/AdditionalResources/CommonTemplates';
 import * as SiteXml from '../docs/Welcome/AdditionalResources/SiteXml';
 
-// AllDocs/WebDev
-
-// AllDocs/ and so on...
-
 const guideModules = [
-    Overview,
+    // WebDev docs
+    WebDevOverview,
+    WebDevComparison,
+    React,
+    Vue,
+    Angular,
+    Tailwind,
+    Vite,
+    Recharts,
+    Shadcn,
+    // Mobile docs
+    MobileOverview,
+    MobileComparison,
+    ReactNative,
+    Flutter,
+    Expo,
+    Kotlin,
+    Swift,
+    AndroidStudio,
+    Xcode,
+    // Desktop docs
+    DesktopOverview,
+    DesktopComparison,
+    Electron,
+    Tauri,
+    MacOS,
+    DotNet,
+    ASPNET,
+    VisualStudio,
+    // Welcome docs
+    WelcomeOverview,
     HowToUse,
-    WebDev,
-    Mobile,
-    Desktop,
+    WelcomeWebDev,
+    WelcomeMobile,
+    WelcomeDesktop,
     Cloud,
     Backend,
     Deployment,
