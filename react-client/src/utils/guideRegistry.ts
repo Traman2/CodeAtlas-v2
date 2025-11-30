@@ -32,6 +32,38 @@ import * as DotNet from '../docs/Desktop/Microsoft/DotNet';
 import * as ASPNET from '../docs/Desktop/Microsoft/ASPNET';
 import * as VisualStudio from '../docs/Desktop/Tools/VisualStudio';
 
+// docs/Cloud
+import * as CloudOverview from '../docs/Cloud/GetStarted/Overview';
+import * as CloudComparison from '../docs/Cloud/GetStarted/Comparison';
+import * as AWS from '../docs/Cloud/Providers/AWS';
+import * as Azure from '../docs/Cloud/Providers/Azure';
+import * as GCP from '../docs/Cloud/Providers/GCP';
+import * as Terraform from '../docs/Cloud/Frameworks/Terraform';
+import * as Kubernetes from '../docs/Cloud/Frameworks/Kubernetes';
+
+// docs/Backend
+import * as BackendOverview from '../docs/Backend/GetStarted/Overview';
+import * as BackendComparison from '../docs/Backend/GetStarted/Comparison';
+import * as Express from '../docs/Backend/Frameworks/Express';
+import * as FastAPI from '../docs/Backend/Frameworks/FastAPI';
+import * as Django from '../docs/Backend/Frameworks/Django';
+import * as Flask from '../docs/Backend/Frameworks/Flask';
+import * as SpringBoot from '../docs/Backend/Frameworks/SpringBoot';
+
+// docs/Deployment
+import * as DeploymentOverview from '../docs/Deployment/GetStarted/Overview';
+import * as Vercel from '../docs/Deployment/Platforms/Vercel';
+import * as Docker from '../docs/Deployment/Tools/Docker';
+import * as GitHubActions from '../docs/Deployment/CI-CD/GitHubActions';
+
+// docs/DataAnalytics
+import * as DataAnalyticsOverview from '../docs/DataAnalytics/GetStarted/Overview';
+import * as PyTorch from '../docs/DataAnalytics/Frameworks/PyTorch';
+import * as SciKitLearn from '../docs/DataAnalytics/Frameworks/SciKitLearn';
+import * as Pandas from '../docs/DataAnalytics/Libraries/Pandas';
+import * as NumPy from '../docs/DataAnalytics/Libraries/NumPy';
+import * as Matplotlib from '../docs/DataAnalytics/Libraries/Matplotlib';
+
 // docs/Welcome
 import * as WelcomeOverview from '../docs/Welcome/GetStarted/Overview';
 import * as HowToUse from '../docs/Welcome/GetStarted/HowToUse';
@@ -77,6 +109,34 @@ const guideModules = [
     DotNet,
     ASPNET,
     VisualStudio,
+    // Cloud docs
+    CloudOverview,
+    CloudComparison,
+    AWS,
+    Azure,
+    GCP,
+    Terraform,
+    Kubernetes,
+    // Backend docs
+    BackendOverview,
+    BackendComparison,
+    Express,
+    FastAPI,
+    Django,
+    Flask,
+    SpringBoot,
+    // Deployment docs
+    DeploymentOverview,
+    Vercel,
+    Docker,
+    GitHubActions,
+    // DataAnalytics docs
+    DataAnalyticsOverview,
+    PyTorch,
+    SciKitLearn,
+    Pandas,
+    NumPy,
+    Matplotlib,
     // Welcome docs
     WelcomeOverview,
     HowToUse,

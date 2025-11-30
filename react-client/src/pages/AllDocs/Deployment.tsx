@@ -1,8 +1,13 @@
 import { useRef, useState, useEffect } from "react"
-import { useParams, useNavigate } from "react-router-dom"
+import { useParams, useNavigate, Navigate } from "react-router-dom"
 
 import GithubGray from "/allDocs/GithubGray.svg"
 import OpenOutside from "/allDocs/OpenOutside.svg"
+
+import Overview, { sections as overviewSections } from "../../docs/Deployment/GetStarted/Overview"
+import VercelDocs, { sections as vercelSections } from "../../docs/Deployment/Platforms/Vercel"
+import DockerDocs, { sections as dockerSections } from "../../docs/Deployment/Tools/Docker"
+import GitHubActionsDocs, { sections as githubActionsSections } from "../../docs/Deployment/CI-CD/GitHubActions"
 
 export default function Deployment() {
     const { section } = useParams<{ section: string }>()
@@ -24,6 +29,14 @@ export default function Deployment() {
 
     function getSections() {
         switch (section) {
+            case "overview":
+                return overviewSections
+            case "vercel":
+                return vercelSections
+            case "docker":
+                return dockerSections
+            case "github-actions":
+                return githubActionsSections
             default:
                 return [{ id: "", title: "" }]
         }
@@ -91,6 +104,21 @@ export default function Deployment() {
         }
     }
 
+    function renderDocs() {
+        switch (section) {
+            case "overview":
+                return <Overview />
+            case "vercel":
+                return <VercelDocs />
+            case "docker":
+                return <DockerDocs />
+            case "github-actions":
+                return <GitHubActionsDocs />
+            default:
+                return <Navigate to="/alldocs/deployment/overview" replace />
+        }
+    }
+
     return (
         <>
             <div className="flex flex-1 h-full overflow-hidden">
@@ -109,22 +137,55 @@ export default function Deployment() {
                     </a>
                     <h1 className="px-2 font-semibold text-gray-800 uppercase text-sm mt-6 mb-3">Get Started</h1>
                     <button
-                        onClick={() => navigate("/alldocs/welcome/overview")}
+                        onClick={() => navigate("/alldocs/deployment/overview")}
                         className={`${section === "overview"
                             ? "text-[#110b8c] font-semibold bg-[#eae9ff]"
                             : "text-[#4B5563]"
                             } cursor-pointer transition-all opacity-80 hover:opacity-100 hover:bg-gray-100 px-2 py-1 flex justify-between items-center`}
                     >
-                        No Links
+                        Overview
+                    </button>
+                    
+                    <h1 className="px-2 font-semibold text-gray-800 uppercase text-sm mt-6 mb-3">Platforms</h1>
+                    <button
+                        onClick={() => navigate("/alldocs/deployment/vercel")}
+                        className={`${section === "vercel"
+                            ? "text-[#110b8c] font-semibold bg-[#eae9ff]"
+                            : "text-[#4B5563]"
+                            } cursor-pointer transition-all opacity-80 hover:opacity-100 hover:bg-gray-100 px-2 py-1 flex justify-between items-center`}
+                    >
+                        Vercel
+                    </button>
+                    
+                    <h1 className="px-2 font-semibold text-gray-800 uppercase text-sm mt-6 mb-3">Tools</h1>
+                    <button
+                        onClick={() => navigate("/alldocs/deployment/docker")}
+                        className={`${section === "docker"
+                            ? "text-[#110b8c] font-semibold bg-[#eae9ff]"
+                            : "text-[#4B5563]"
+                            } cursor-pointer transition-all opacity-80 hover:opacity-100 hover:bg-gray-100 px-2 py-1 flex justify-between items-center`}
+                    >
+                        Docker
+                    </button>
+                    
+                    <h1 className="px-2 font-semibold text-gray-800 uppercase text-sm mt-6 mb-3">CI/CD</h1>
+                    <button
+                        onClick={() => navigate("/alldocs/deployment/github-actions")}
+                        className={`${section === "github-actions"
+                            ? "text-[#110b8c] font-semibold bg-[#eae9ff]"
+                            : "text-[#4B5563]"
+                            } cursor-pointer transition-all opacity-80 hover:opacity-100 hover:bg-gray-100 px-2 py-1 flex justify-between items-center`}
+                    >
+                        GitHub Actions
                     </button>
                     <div className="mb-12" />
                 </div>
 
                 <div className="flex-1 overflow-y-auto content-scrollbar">
                     <div className="flex pt-6 gap-4">
-                        <div className="flex-1 flex justify-center ">
+                        <div className="flex-1 flex justify-center">
                             <div className="max-w-170 w-full px-4 pb-40">
-                                No Deployment docs right now
+                                {renderDocs()}
                             </div>
                         </div>
                         <div className="sticky top-6 self-start pl-2 min-w-70 hidden xl:block">
@@ -134,10 +195,11 @@ export default function Deployment() {
                                     <button
                                         key={sec.id}
                                         onClick={() => scrollToSection(sec.id)}
-                                        className={`cursor-pointer text-left py-1 pl-3 border-l-2 transition-all text-sm ${activeSection === sec.id
+                                        className={`cursor-pointer text-left py-1 pl-3 border-l-2 transition-all text-sm ${
+                                            activeSection === sec.id
                                                 ? "border-[#4f46ff] text-[#4f46ff] font-semibold"
                                                 : "border-gray-200 text-[#4B5563] hover:text-gray-900"
-                                            }`}
+                                        }`}
                                     >
                                         {sec.title}
                                     </button>

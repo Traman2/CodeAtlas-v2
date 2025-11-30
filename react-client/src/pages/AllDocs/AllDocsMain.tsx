@@ -19,43 +19,43 @@ export default function AllDocsMain() {
             Welcome
           </button>
           <button
-            onClick={() => navigate("/alldocs/webdev")}
+            onClick={() => navigate("/alldocs/webdev/overview")}
             className={`border-b-2 pb-2 font-semibold cursor-pointer ${currentTab === "webdev" ? "border-[#554DE2] text-[#554DE2]" : "border-transparent text-[#4B5563]"}`}
           >
             Web Dev
           </button>
           <button
-            onClick={() => navigate("/alldocs/mobile")}
+            onClick={() => navigate("/alldocs/mobile/overview")}
             className={`border-b-2 pb-2 font-semibold cursor-pointer ${currentTab === "mobile" ? "border-[#554DE2] text-[#554DE2]" : "border-transparent text-[#4B5563]"}`}
           >
             Mobile
           </button>
           <button
-            onClick={() => navigate("/alldocs/desktop")}
+            onClick={() => navigate("/alldocs/desktop/overview")}
             className={`border-b-2 pb-2 font-semibold cursor-pointer ${currentTab === "desktop" ? "border-[#554DE2] text-[#554DE2]" : "border-transparent text-[#4B5563]"}`}
           >
             Desktop
           </button>
           <button
-            onClick={() => navigate("/alldocs/cloud")}
+            onClick={() => navigate("/alldocs/cloud/overview")}
             className={`border-b-2 pb-2 font-semibold cursor-pointer ${currentTab === "cloud" ? "border-[#554DE2] text-[#554DE2]" : "border-transparent text-[#4B5563]"}`}
           >
             Cloud
           </button>
           <button
-            onClick={() => navigate("/alldocs/backend")}
+            onClick={() => navigate("/alldocs/backend/overview")}
             className={`border-b-2 pb-2 font-semibold cursor-pointer ${currentTab === "backend" ? "border-[#554DE2] text-[#554DE2]" : "border-transparent text-[#4B5563]"}`}
           >
             Backend
           </button>
           <button
-            onClick={() => navigate("/alldocs/deployment")}
+            onClick={() => navigate("/alldocs/deployment/overview")}
             className={`border-b-2 pb-2 font-semibold cursor-pointer ${currentTab === "deployment" ? "border-[#554DE2] text-[#554DE2]" : "border-transparent text-[#4B5563]"}`}
           >
             Deployment
           </button>
           <button
-            onClick={() => navigate("/alldocs/dataanalytics")}
+            onClick={() => navigate("/alldocs/dataanalytics/overview")}
             className={`border-b-2 pb-2 font-semibold cursor-pointer ${currentTab === "dataanalytics" ? "border-[#554DE2] text-[#554DE2]" : "border-transparent text-[#4B5563]"}`}
           >
             Data Analytics

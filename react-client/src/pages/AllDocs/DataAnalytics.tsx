@@ -1,8 +1,15 @@
 import { useRef, useState, useEffect } from "react"
-import { useParams, useNavigate } from "react-router-dom"
+import { useParams, useNavigate, Navigate } from "react-router-dom"
 
 import GithubGray from "/allDocs/GithubGray.svg"
 import OpenOutside from "/allDocs/OpenOutside.svg"
+
+import Overview, { sections as overviewSections } from "../../docs/DataAnalytics/GetStarted/Overview"
+import PyTorchDocs, { sections as pytorchSections } from "../../docs/DataAnalytics/Frameworks/PyTorch"
+import SciKitLearnDocs, { sections as scikitlearnSections } from "../../docs/DataAnalytics/Frameworks/SciKitLearn"
+import PandasDocs, { sections as pandasSections } from "../../docs/DataAnalytics/Libraries/Pandas"
+import NumPyDocs, { sections as numpySections } from "../../docs/DataAnalytics/Libraries/NumPy"
+import MatplotlibDocs, { sections as matplotlibSections } from "../../docs/DataAnalytics/Libraries/Matplotlib"
 
 export default function DataAnalytics() {
     const { section } = useParams<{ section: string }>()
@@ -24,6 +31,18 @@ export default function DataAnalytics() {
 
     function getSections() {
         switch (section) {
+            case "overview":
+                return overviewSections
+            case "pytorch":
+                return pytorchSections
+            case "scikit-learn":
+                return scikitlearnSections
+            case "pandas":
+                return pandasSections
+            case "numpy":
+                return numpySections
+            case "matplotlib":
+                return matplotlibSections
             default:
                 return [{ id: "", title: "" }]
         }
@@ -91,6 +110,25 @@ export default function DataAnalytics() {
         }
     }
 
+    function renderDocs() {
+        switch (section) {
+            case "overview":
+                return <Overview />
+            case "pytorch":
+                return <PyTorchDocs />
+            case "scikit-learn":
+                return <SciKitLearnDocs />
+            case "pandas":
+                return <PandasDocs />
+            case "numpy":
+                return <NumPyDocs />
+            case "matplotlib":
+                return <MatplotlibDocs />
+            default:
+                return <Navigate to="/alldocs/dataanalytics/overview" replace />
+        }
+    }
+
     return (
         <>
             <div className="flex flex-1 h-full overflow-hidden">
@@ -109,22 +147,71 @@ export default function DataAnalytics() {
                     </a>
                     <h1 className="px-2 font-semibold text-gray-800 uppercase text-sm mt-6 mb-3">Get Started</h1>
                     <button
-                        onClick={() => navigate("/alldocs/welcome/overview")}
+                        onClick={() => navigate("/alldocs/dataanalytics/overview")}
                         className={`${section === "overview"
                             ? "text-[#110b8c] font-semibold bg-[#eae9ff]"
                             : "text-[#4B5563]"
                             } cursor-pointer transition-all opacity-80 hover:opacity-100 hover:bg-gray-100 px-2 py-1 flex justify-between items-center`}
                     >
-                        No Links
+                        Overview
+                    </button>
+                    
+                    <h1 className="px-2 font-semibold text-gray-800 uppercase text-sm mt-6 mb-3">Frameworks</h1>
+                    <button
+                        onClick={() => navigate("/alldocs/dataanalytics/pytorch")}
+                        className={`${section === "pytorch"
+                            ? "text-[#110b8c] font-semibold bg-[#eae9ff]"
+                            : "text-[#4B5563]"
+                            } cursor-pointer transition-all opacity-80 hover:opacity-100 hover:bg-gray-100 px-2 py-1 flex justify-between items-center`}
+                    >
+                        PyTorch
+                    </button>
+                    <button
+                        onClick={() => navigate("/alldocs/dataanalytics/scikit-learn")}
+                        className={`${section === "scikit-learn"
+                            ? "text-[#110b8c] font-semibold bg-[#eae9ff]"
+                            : "text-[#4B5563]"
+                            } cursor-pointer transition-all opacity-80 hover:opacity-100 hover:bg-gray-100 px-2 py-1 flex justify-between items-center`}
+                    >
+                        SciKit-learn
+                    </button>
+                    
+                    <h1 className="px-2 font-semibold text-gray-800 uppercase text-sm mt-6 mb-3">Libraries</h1>
+                    <button
+                        onClick={() => navigate("/alldocs/dataanalytics/pandas")}
+                        className={`${section === "pandas"
+                            ? "text-[#110b8c] font-semibold bg-[#eae9ff]"
+                            : "text-[#4B5563]"
+                            } cursor-pointer transition-all opacity-80 hover:opacity-100 hover:bg-gray-100 px-2 py-1 flex justify-between items-center`}
+                    >
+                        Pandas
+                    </button>
+                    <button
+                        onClick={() => navigate("/alldocs/dataanalytics/numpy")}
+                        className={`${section === "numpy"
+                            ? "text-[#110b8c] font-semibold bg-[#eae9ff]"
+                            : "text-[#4B5563]"
+                            } cursor-pointer transition-all opacity-80 hover:opacity-100 hover:bg-gray-100 px-2 py-1 flex justify-between items-center`}
+                    >
+                        NumPy
+                    </button>
+                    <button
+                        onClick={() => navigate("/alldocs/dataanalytics/matplotlib")}
+                        className={`${section === "matplotlib"
+                            ? "text-[#110b8c] font-semibold bg-[#eae9ff]"
+                            : "text-[#4B5563]"
+                            } cursor-pointer transition-all opacity-80 hover:opacity-100 hover:bg-gray-100 px-2 py-1 flex justify-between items-center`}
+                    >
+                        Matplotlib
                     </button>
                     <div className="mb-12" />
                 </div>
 
                 <div className="flex-1 overflow-y-auto content-scrollbar">
                     <div className="flex pt-6 gap-4">
-                        <div className="flex-1 flex justify-center ">
+                        <div className="flex-1 flex justify-center">
                             <div className="max-w-170 w-full px-4 pb-40">
-                                No DataAnalytics docs right now
+                                {renderDocs()}
                             </div>
                         </div>
                         <div className="sticky top-6 self-start pl-2 min-w-70 hidden xl:block">
@@ -134,10 +221,11 @@ export default function DataAnalytics() {
                                     <button
                                         key={sec.id}
                                         onClick={() => scrollToSection(sec.id)}
-                                        className={`cursor-pointer text-left py-1 pl-3 border-l-2 transition-all text-sm ${activeSection === sec.id
+                                        className={`cursor-pointer text-left py-1 pl-3 border-l-2 transition-all text-sm ${
+                                            activeSection === sec.id
                                                 ? "border-[#4f46ff] text-[#4f46ff] font-semibold"
                                                 : "border-gray-200 text-[#4B5563] hover:text-gray-900"
-                                            }`}
+                                        }`}
                                     >
                                         {sec.title}
                                     </button>

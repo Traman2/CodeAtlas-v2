@@ -27,10 +27,14 @@ function App() {
             <Route path="mobile" element={<Navigate to="/alldocs/mobile/overview" replace />} /> {/* Default section route for mobile page */}
             <Route path="desktop/:section" element={<Desktop />} />
             <Route path="desktop" element={<Navigate to="/alldocs/desktop/overview" replace />} /> {/* Default section route for desktop page */}
-            <Route path="cloud" element={<Cloud />} />
-            <Route path="backend" element={<Backend />} />
-            <Route path="deployment" element={<Deployment />} />
-            <Route path="dataanalytics" element={<DataAnalytics />} />
+            <Route path="cloud/:section" element={<Cloud />} />
+            <Route path="cloud" element={<Navigate to="/alldocs/cloud/overview" replace />} /> {/* Default section route for cloud page */}
+            <Route path="backend/:section" element={<Backend />} />
+            <Route path="backend" element={<Navigate to="/alldocs/backend/overview" replace />} /> {/* Default section route for backend page */}
+            <Route path="deployment/:section" element={<Deployment />} />
+            <Route path="deployment" element={<Navigate to="/alldocs/deployment/overview" replace />} /> {/* Default section route for deployment page */}
+            <Route path="dataanalytics/:section" element={<DataAnalytics />} />
+            <Route path="dataanalytics" element={<Navigate to="/alldocs/dataanalytics/overview" replace />} /> {/* Default section route for dataanalytics page */}
             <Route path="" element={<Navigate to="/alldocs/welcome/overview" replace />} /> {/* Default alldocs page route */}
           </Route>
           <Route path="articles" element={<ArticlesMain />} />
