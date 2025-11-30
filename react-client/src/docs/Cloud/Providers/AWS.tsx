@@ -107,35 +107,6 @@ aws lambda create-function \\
     --zip-file fileb://function.zip
 `;
 
-const terraformExample = `
-# Terraform configuration for AWS EC2 instance
-terraform {
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "~> 5.0"
-    }
-  }
-}
-
-provider "aws" {
-  region = "us-east-1"
-}
-
-resource "aws_instance" "web" {
-  ami           = "ami-0c55b159cbfafe1f0"
-  instance_type = "t2.micro"
-
-  tags = {
-    Name = "WebServer"
-  }
-}
-
-# Initialize and apply
-# terraform init
-# terraform plan
-# terraform apply
-`;
 
 export default function AWSDocs() {
     const navigate = useNavigate();

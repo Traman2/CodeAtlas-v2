@@ -1,7 +1,7 @@
 import { Icon } from "@iconify/react";
 import CodeBlock from '../../../components/CodeBlock';
 import { useNavigate } from "react-router-dom";
-import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, ScatterChart, Scatter, PieChart, Pie, Cell } from 'recharts';
+import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, ScatterChart, Scatter, PieChart, Pie, Cell } from 'recharts';
 import type { GuideMetadata } from '../../../types/GuideMetadata';
 
 export const sections = [
@@ -113,7 +113,7 @@ const barData = [
     { category: 'E', value: 32 }
 ];
 
-const scatterData = Array.from({ length: 50 }, (_, i) => ({
+const scatterData = Array.from({ length: 50 }, (_) => ({
     x: Math.random() * 10 - 5,
     y: Math.random() * 10 - 5 + (Math.random() * 10 - 5) * 0.3
 }));
@@ -289,12 +289,12 @@ export default function MatplotlibDocs() {
                             cx="50%"
                             cy="50%"
                             labelLine={false}
-                            label={({ name, percent }) => `${name}: ${(percent * 100).toFixed(0)}%`}
+                            label={({ name, percent }) => `${name}: ${(percent ?? 0 * 100).toFixed(0)}%`}
                             outerRadius={80}
                             fill="#8884d8"
                             dataKey="value"
                         >
-                            {pieData.map((entry, index) => (
+                            {pieData.map((_, index) => (
                                 <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                             ))}
                         </Pie>
