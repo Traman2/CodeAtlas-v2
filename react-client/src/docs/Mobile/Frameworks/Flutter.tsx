@@ -299,7 +299,7 @@ export default function FlutterDocs() {
             </p>
 
             <div className="w-full flex justify-center mb-20">
-                <Icon icon="mdi:language-dart" className="w-70 h-70 text-[#0175C2]"/>
+                <Icon icon="vscode-icons:file-type-flutter" className="w-70 h-70 text-[#0175C2]"/>
             </div>
 
             <h2 id="what-is-flutter" className="text-2xl font-semibold mt-12 mb-4">

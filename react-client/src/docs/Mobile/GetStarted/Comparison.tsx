@@ -105,8 +105,9 @@ export default function MobileComparison() {
 
                 <div className="px-6 py-4 bg-[#f6f6f6] border border-[#f0f0f0]">
                     <div className="flex items-center gap-3 mb-2">
-                        <Icon icon="mdi:language-dart" width="32" height="32" className="text-[#0175C2]" />
+                        <Icon icon="vscode-icons:file-type-flutter" width="32" height="32" className="text-[#0175C2]" />
                         <h3 className="font-semibold text-lg">Flutter</h3>
+                        
                     </div>
                     <p className="text-sm text-[#4B5563]">
                         Dart-based, excellent performance, beautiful UI out of the box
@@ -270,7 +271,7 @@ export default function MobileComparison() {
 
                 <div className="px-6 py-5 bg-[#f6f6f6] border border-[#f0f0f0]">
                     <div className="flex items-center gap-3 mb-3">
-                        <Icon icon="mdi:language-dart" width="32" height="32" className="text-[#0175C2]" />
+                        <Icon icon="vscode-icons:file-type-flutter" width="32" height="32" className="text-[#0175C2]" />
                         <h3 className="font-semibold text-xl">Choose Flutter When:</h3>
                     </div>
                     <ul className="space-y-2 text-[#4B5563]">
