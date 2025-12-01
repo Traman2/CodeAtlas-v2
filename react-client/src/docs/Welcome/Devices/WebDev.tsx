@@ -85,12 +85,6 @@ export default function WebDevDocs() {
                 Ready to Dive Deeper?
             </h2>
 
-            <p className="mt-4 mb-6 leading-relaxed">
-                Now that you understand the basics of web development, explore our comprehensive Web Development
-                section for in-depth guides, tutorials, and best practices across all the frameworks and tools
-                mentioned above.
-            </p>
-
             <button
                 onClick={() => navigate("/alldocs/webdev")}
                 className="w-full px-6 py-4 bg-[#554DE2]/5 border border-[#554DE2] hover:bg-[#554DE2]/10 transition-all flex items-center justify-between group cursor-pointer"
@@ -104,6 +98,40 @@ export default function WebDevDocs() {
                 </div>
                 <Icon icon="mdi:arrow-right" width="24" height="24" className="text-[#554DE2] group-hover:translate-x-1 transition-transform" />
             </button>
+
+            <p className="mt-4 mb-6 leading-relaxed">
+                Now that you understand the basics of web development, explore our comprehensive Web Development
+                section for in-depth guides, tutorials, and best practices across all the frameworks and tools
+                mentioned above.
+            </p>
+
+            
+
+            <div className="mt-36 gap-4 w-full bg-white text-gray-700 border border-gray-300 flex items-center justify-between">
+                {/* Left button back */}
+                <button
+                    onClick={() => navigate("/alldocs/welcome/howtouse")}
+                    className="px-6 py-4  transition-all flex items-center justify-between group cursor-pointer"
+                >
+                    
+                    <Icon icon="tabler:arrow-left" width="24" height="24" className="text-[#554DE2] group-hover:-translate-x-1 transition-transform" />
+                </button>
+
+                {/* Right button next */}
+                <button
+                    onClick={() => navigate("/alldocs/welcome/mobile")}
+                    className="w-full px-6 py-4 bg-white text-gray-700 border border-gray-300 hover:border-[#554DE2] hover:bg-[#554DE2]/5 hover:shadow-md transition-all flex items-center justify-between group cursor-pointer"
+                >
+                    <div className="flex items-center gap-4">
+                        <Icon icon="mynaui:mobile" width="40" height="40" className="text-[#554DE2]" />
+                        <div className="flex flex-col items-start">
+                            <h3 className="font-semibold text-lg text-left">Next Section</h3>
+                            <p className="text-[#6b7280] text-left">Devices - Mobile</p>
+                        </div>
+                    </div>
+                    <Icon icon="tabler:arrow-right" width="24" height="24" className="text-[#554DE2] group-hover:translate-x-1 transition-transform" />
+                </button>
+            </div>
         </>
     )
 }

@@ -1,6 +1,7 @@
 import { Icon } from "@iconify/react";
 import CodeBlock from '../../../components/CodeBlock';
 import type { GuideMetadata } from '../../../types/GuideMetadata';
+import { useNavigate } from "react-router-dom";
 
 export const sections = [
     { id: "what-is-xcode", title: "What is Xcode?" },
@@ -118,6 +119,7 @@ fatalError("This should never happen")
 `;
 
 export default function XcodeDocs() {
+    const navigate = useNavigate();
     return (
         <>
             <p className="text-[#4f46ff] font-semibold text-sm">TOOLS</p>
@@ -222,6 +224,16 @@ export default function XcodeDocs() {
                         during debugging.
                     </p>
                 </div>
+            </div>
+
+            <div className="mt-36 gap-4 w-full bg-white text-gray-700 border border-gray-300 flex items-center justify-between">
+                {/* Left button back */}
+                <button
+                    onClick={() => navigate("/alldocs/mobile/androidstudio")}
+                    className="px-6 py-4 transition-all flex items-center justify-between group cursor-pointer"
+                >
+                    <Icon icon="tabler:arrow-left" width="24" height="24" className="text-[#554DE2] group-hover:-translate-x-1 transition-transform" />
+                </button>
             </div>
         </>
     )

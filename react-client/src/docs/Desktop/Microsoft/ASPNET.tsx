@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import CodeBlock from '../../../components/CodeBlock';
 import type { GuideMetadata } from '../../../types/GuideMetadata';
@@ -75,6 +76,7 @@ async function getHealth() {
 const signalR = `\n// Program.cs\nbuilder.Services.AddSignalR();\n\nvar app = builder.Build();\napp.MapHub<DesktopHub>(\"/desktopHub\");\napp.Run();\n\n// DesktopHub.cs\nusing Microsoft.AspNetCore.SignalR;\n\npublic class DesktopHub : Hub\n{\n    public async Task SendUpdate(string message)\n    {\n        await Clients.All.SendAsync(\"ReceiveUpdate\", message);\n    }\n}\n\n// Desktop client (JavaScript)\nimport * as signalR from '@microsoft/signalr';\n\nconst connection = new signalR.HubConnectionBuilder()\n  .withUrl('https://localhost:5001/desktopHub')\n  .build();\n\nconnection.on('ReceiveUpdate', (message) => {\n  console.log('Update:', message);\n});\n\nawait connection.start();\nawait connection.invoke('SendUpdate', 'Desktop app connected');\n`;
 
 export default function AspNetDocs() {
+    const navigate = useNavigate();
     return (
         <>
             <p className="text-[#4f46ff] font-semibold text-sm">MICROSOFT STACK</p>
@@ -159,6 +161,31 @@ export default function AspNetDocs() {
                         Cache data locally and sync with ASP.NET APIs when network connectivity is available.
                     </p>
                 </div>
+            </div>
+
+            <div className="mt-36 gap-4 w-full bg-white text-gray-700 border border-gray-300 flex items-center justify-between">
+                {/* Left button back */}
+                <button
+                    onClick={() => navigate("/alldocs/desktop/dotnet")}
+                    className="px-6 py-4 transition-all flex items-center justify-between group cursor-pointer"
+                >
+                    <Icon icon="tabler:arrow-left" width="24" height="24" className="text-[#554DE2] group-hover:-translate-x-1 transition-transform" />
+                </button>
+
+                {/* Right button next */}
+                <button
+                    onClick={() => navigate("/alldocs/desktop/visualstudio")}
+                    className="w-full px-6 py-4 bg-white text-gray-700 border border-gray-300 hover:border-[#554DE2] hover:bg-[#554DE2]/5 hover:shadow-md transition-all flex items-center justify-between group cursor-pointer"
+                >
+                    <div className="flex items-center gap-4">
+                        <Icon icon="mdi:visual-studio" width="40" height="40" className="text-[#5C2D91]" />
+                        <div className="flex flex-col items-start">
+                            <h3 className="font-semibold text-lg text-left">Next Section</h3>
+                            <p className="text-[#6b7280] text-left">Tools - Visual Studio</p>
+                        </div>
+                    </div>
+                    <Icon icon="tabler:arrow-right" width="24" height="24" className="text-[#554DE2] group-hover:translate-x-1 transition-transform" />
+                </button>
             </div>
         </>
     )

@@ -276,6 +276,23 @@ export default function DeploymentOverview() {
                 Deployment is a crucial part of the development lifecycle. Choose the right platform for your needs, 
                 automate your workflows, and ensure your applications are reliable and scalable. Happy deploying! 🚀
             </p>
+
+            <div className="mt-36 gap-4 w-full bg-white text-gray-700 border border-gray-300 flex items-center justify-between">
+                {/* Right button next */}
+                <button
+                    onClick={() => navigate("/alldocs/deployment/vercel")}
+                    className="w-full px-6 py-4 bg-white text-gray-700 border border-gray-300 hover:border-[#554DE2] hover:bg-[#554DE2]/5 hover:shadow-md transition-all flex items-center justify-between group cursor-pointer"
+                >
+                    <div className="flex items-center gap-4">
+                        <Icon icon="mdi:vercel" width="40" height="40" className="text-[#000000]" />
+                        <div className="flex flex-col items-start">
+                            <h3 className="font-semibold text-lg text-left">Next Section</h3>
+                            <p className="text-[#6b7280] text-left">Platforms - Vercel</p>
+                        </div>
+                    </div>
+                    <Icon icon="tabler:arrow-right" width="24" height="24" className="text-[#554DE2] group-hover:translate-x-1 transition-transform" />
+                </button>
+            </div>
         </>
     )
 }

@@ -2,6 +2,7 @@ import type { GuideMetadata } from '../../../types/GuideMetadata';
 import { Icon } from "@iconify/react";
 import CodeBlock from '../../../components/CodeBlock';
 import 'highlight.js/styles/atom-one-dark.css';
+import { useNavigate } from "react-router-dom"
 
 export const sections = [
     { id: "understanding-interface", title: "Understanding the Interface" },
@@ -34,9 +35,9 @@ export const metadata: GuideMetadata = {
     `.trim()
 };
 
-const npmCodeExample = 
+const npmCodeExample =
 
-`
+    `
 # Install a single package
 npm install react
 
@@ -48,6 +49,7 @@ npm install --save-dev typescript
 `;
 
 export default function DocsHowToUse() {
+    const navigate = useNavigate();
     return (
         <>
             <p className="text-[#4f46ff] font-semibold text-sm">GET STARTED</p>
@@ -356,6 +358,32 @@ export default function DocsHowToUse() {
                 <kbd className="px-2 py-1 bg-gray-200 rounded border border-gray-300 font-mono text-sm">/</kbd> key
                 and search for what you need. Happy learning! 🎉
             </p>
+
+            <div className="gap-4 w-full bg-white text-gray-700 border border-gray-300 flex items-center justify-between">
+                {/* Left button back */}
+                <button
+                    onClick={() => navigate("/alldocs/welcome/overview")}
+                    className="px-6 py-4  transition-all flex items-center justify-between group cursor-pointer"
+                >
+                    
+                    <Icon icon="tabler:arrow-left" width="24" height="24" className="text-[#554DE2] group-hover:-translate-x-1 transition-transform" />
+                </button>
+
+                {/* Right button next */}
+                <button
+                    onClick={() => navigate("/alldocs/welcome/webdev")}
+                    className="w-full px-6 py-4 bg-white text-gray-700 border border-gray-300 hover:border-[#554DE2] hover:bg-[#554DE2]/5 hover:shadow-md transition-all flex items-center justify-between group cursor-pointer"
+                >
+                    <div className="flex items-center gap-4">
+                        <Icon icon="iconoir:www" width="40" height="40" className="text-[#554DE2]" />
+                        <div className="flex flex-col items-start">
+                            <h3 className="font-semibold text-lg text-left">Next Section</h3>
+                            <p className="text-[#6b7280] text-left">Devices - Web Dev</p>
+                        </div>
+                    </div>
+                    <Icon icon="tabler:arrow-right" width="24" height="24" className="text-[#554DE2] group-hover:translate-x-1 transition-transform" />
+                </button>
+            </div>
         </>
     )
 }

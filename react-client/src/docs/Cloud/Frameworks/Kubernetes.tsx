@@ -381,6 +381,16 @@ export default function KubernetesDocs() {
                     </div>
                 </div>
             </div>
+
+            <div className="mt-36 gap-4 w-full bg-white text-gray-700 border border-gray-300 flex items-center justify-between">
+                {/* Left button back */}
+                <button
+                    onClick={() => navigate("/alldocs/cloud/terraform")}
+                    className="px-6 py-4 transition-all flex items-center justify-between group cursor-pointer"
+                >
+                    <Icon icon="tabler:arrow-left" width="24" height="24" className="text-[#554DE2] group-hover:-translate-x-1 transition-transform" />
+                </button>
+            </div>
         </>
     )
 }

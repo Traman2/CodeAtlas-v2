@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import CodeBlock from '../../../components/CodeBlock';
 import type { GuideMetadata } from '../../../types/GuideMetadata';
@@ -216,6 +217,7 @@ struct PropertyWrapperExamples: View {
 `;
 
 export default function SwiftDocs() {
+    const navigate = useNavigate();
     return (
         <>
             <p className="text-[#4f46ff] font-semibold text-sm">NATIVE DEVELOPMENT</p>
@@ -412,6 +414,31 @@ export default function SwiftDocs() {
                     <li>• Study iOS app lifecycle and state management</li>
                     <li>• Learn about app deployment to App Store</li>
                 </ul>
+            </div>
+
+            <div className="mt-36 gap-4 w-full bg-white text-gray-700 border border-gray-300 flex items-center justify-between">
+                {/* Left button back */}
+                <button
+                    onClick={() => navigate("/alldocs/mobile/kotlin")}
+                    className="px-6 py-4 transition-all flex items-center justify-between group cursor-pointer"
+                >
+                    <Icon icon="tabler:arrow-left" width="24" height="24" className="text-[#554DE2] group-hover:-translate-x-1 transition-transform" />
+                </button>
+
+                {/* Right button next */}
+                <button
+                    onClick={() => navigate("/alldocs/mobile/androidstudio")}
+                    className="w-full px-6 py-4 bg-white text-gray-700 border border-gray-300 hover:border-[#554DE2] hover:bg-[#554DE2]/5 hover:shadow-md transition-all flex items-center justify-between group cursor-pointer"
+                >
+                    <div className="flex items-center gap-4">
+                        <Icon icon="mdi:android-studio" width="40" height="40" className="text-[#3DDC84]" />
+                        <div className="flex flex-col items-start">
+                            <h3 className="font-semibold text-lg text-left">Next Section</h3>
+                            <p className="text-[#6b7280] text-left">Tools - Android Studio</p>
+                        </div>
+                    </div>
+                    <Icon icon="tabler:arrow-right" width="24" height="24" className="text-[#554DE2] group-hover:translate-x-1 transition-transform" />
+                </button>
             </div>
         </>
     )

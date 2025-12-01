@@ -264,6 +264,23 @@ export default function DataAnalyticsOverview() {
                 Data analytics and machine learning are powerful tools for extracting insights from data. Start with the 
                 fundamentals, practice with real datasets, and gradually move to more advanced techniques. Happy analyzing! 📊
             </p>
+
+            <div className="mt-36 gap-4 w-full bg-white text-gray-700 border border-gray-300 flex items-center justify-between">
+                {/* Right button next */}
+                <button
+                    onClick={() => navigate("/alldocs/dataanalytics/pytorch")}
+                    className="w-full px-6 py-4 bg-white text-gray-700 border border-gray-300 hover:border-[#554DE2] hover:bg-[#554DE2]/5 hover:shadow-md transition-all flex items-center justify-between group cursor-pointer"
+                >
+                    <div className="flex items-center gap-4">
+                        <Icon icon="mdi:brain" width="40" height="40" className="text-[#EE4C2C]" />
+                        <div className="flex flex-col items-start">
+                            <h3 className="font-semibold text-lg text-left">Next Section</h3>
+                            <p className="text-[#6b7280] text-left">Frameworks - PyTorch</p>
+                        </div>
+                    </div>
+                    <Icon icon="tabler:arrow-right" width="24" height="24" className="text-[#554DE2] group-hover:translate-x-1 transition-transform" />
+                </button>
+            </div>
         </>
     )
 }
