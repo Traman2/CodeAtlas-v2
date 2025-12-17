@@ -1,0 +1,23 @@
+# Code Atlas - Robots.txt
+
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://codeatlas.dev/sitemap.xml
+
+# Crawl-delay for polite crawling (optional)
+Crawl-delay: 1
+
+# Allow important pages
+Allow: /alldocs/
+Allow: /articles/
+Allow: /apifinder
+Allow: /planningagent
+
+# Disallow build and development files (if any leak to production)
+Disallow: /node_modules/
+Disallow: /src/
+Disallow: /*.json$
+Disallow: /*.map$
