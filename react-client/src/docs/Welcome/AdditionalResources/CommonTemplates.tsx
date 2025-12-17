@@ -85,7 +85,7 @@ export default function CommonTemplatesDocs() {
 
             <ArticleFeedback articleId="/alldocs/welcome/commontemplates"/>
 
-            <div className="mt-36 gap-4 w-full bg-white text-gray-700 border border-gray-300 flex items-center justify-between">
+            <div className="gap-4 w-full bg-white text-gray-700 border border-gray-300 flex items-center justify-between">
                 {/* Left button back */}
                 <button
                     onClick={() => navigate("/alldocs/welcome/planningagent")}

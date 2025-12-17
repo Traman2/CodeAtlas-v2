@@ -1,6 +1,9 @@
 import { useRef, useState, useEffect } from "react"
 import { useParams, useNavigate } from "react-router-dom"
 import Navbar from "../../components/Navbar"
+import WhyCodeAtlas, { sections as whyCodeAtlasSections } from "../../articles/Releases/WhyCodeAtlas"
+import DocsV1Complete, { sections as docsV1CompleteSections } from "../../articles/Releases/DocsV1Complete"
+import { Icon } from "@iconify/react"
 
 export default function ArticlesMain() {
     const { section } = useParams<{ section: string }>()
@@ -22,6 +25,10 @@ export default function ArticlesMain() {
 
     function getSections() {
         switch (section) {
+            case "why-code-atlas":
+                return whyCodeAtlasSections
+            case "docs-v1-complete":
+                return docsV1CompleteSections
             default:
                 return [{ id: "", title: "" }]
         }
@@ -90,9 +97,11 @@ export default function ArticlesMain() {
     }
 
     return (
-        <>
-            <Navbar defaultPage={"articles"}/>
-            <div className="flex flex-1 h-full overflow-hidden border-t border-black/20">
+        <div className="flex flex-col h-dvh overflow-hidden bg-[#F9FAFB]">
+            <div className="sticky top-0 z-10 bg-white">
+                <Navbar defaultPage={"articles"}/>
+            </div>
+            <div className="flex flex-1 overflow-hidden">
                 <div
                     ref={scrollbarRef}
                     onMouseEnter={handleMouseEnter}
@@ -100,15 +109,29 @@ export default function ArticlesMain() {
                     className="flex-1 flex flex-col mt-6 px-4 max-w-70 overflow-y-auto shrink-0 custom-scrollbar"
                 >
                     <h1 className="px-2 font-semibold text-gray-800 uppercase text-sm mb-3">Releases</h1>
+                    {/* Why I built Code atlas */}
                     <button
-                        onClick={() => navigate("/alldocs/welcome/overview")}
-                        className={`${section === "overview"
+                        onClick={() => navigate("/articles/why-code-atlas")}
+                        className={`${section === "why-code-atlas"
                             ? "text-[#110b8c] font-semibold bg-[#eae9ff]"
                             : "text-[#4B5563]"
                             } cursor-pointer transition-all opacity-80 hover:opacity-100 hover:bg-gray-100 px-2 py-1 flex justify-between items-center`}
                     >
-                        No Articles
+                        <span>Why I Built Code Atlas</span>
+                        <span className="text-xs text-[#7b7f85]">Dec 2</span>
                     </button>
+                    {/* Docs Hub v1*/}
+                    <button
+                        onClick={() => navigate("/articles/docs-v1-complete")}
+                        className={`${section === "docs-v1-complete"
+                            ? "text-[#110b8c] font-semibold bg-[#eae9ff]"
+                            : "text-[#4B5563]"
+                            } cursor-pointer transition-all opacity-80 hover:opacity-100 hover:bg-gray-100 px-2 py-1 flex justify-between items-center`}
+                    >
+                        <span>Documentation Hub v1.0</span>
+                        <span className="text-xs text-[#7b7f85]">Dec 17</span>
+                    </button>
+                    
                     <div className="mb-12" />
                 </div>
 
@@ -116,7 +139,17 @@ export default function ArticlesMain() {
                     <div className="flex pt-6 gap-4">
                         <div className="flex-1 flex justify-center ">
                             <div className="max-w-170 w-full px-4 pb-40">
-                                No Articles right now
+                                {section === "docs-v1-complete" && <DocsV1Complete />}
+                                {section === "why-code-atlas" && <WhyCodeAtlas />}
+                                {!section && (
+                                    <div className="flex flex-col items-center justify-center mt-20">
+                                        <Icon icon="material-symbols:newspaper" className="w-32 h-32 text-[#4c4b5c] mb-6" />
+                                        <h2 className="text-2xl font-semibold mb-3 text-gray-800">Release Notes & Updates</h2>
+                                        <p className="text-[#6b7280] text-center max-w-md leading-relaxed">
+                                            Stay up to date with the latest features, improvements, and behind-the-scenes stories from Code Atlas. Select an article from the sidebar to start reading!
+                                        </p>
+                                    </div>
+                                )}
                             </div>
                         </div>
                         <div className="sticky top-6 self-start pl-2 min-w-70 hidden xl:block">
@@ -139,6 +172,6 @@ export default function ArticlesMain() {
                     </div>
                 </div>
             </div>
-        </>
+        </div>
     )
 }

@@ -37,6 +37,7 @@ function App() {
             <Route path="dataanalytics" element={<Navigate to="/alldocs/dataanalytics/overview" replace />} /> {/* Default section route for dataanalytics page */}
             <Route path="" element={<Navigate to="/alldocs/welcome/overview" replace />} /> {/* Default alldocs page route */}
           </Route>
+          <Route path="articles/:section" element={<ArticlesMain />} />
           <Route path="articles" element={<ArticlesMain />} />
           <Route path="apifinder" element={<APIFinderMain />} />
           <Route path="planningagent" element={<PlanningAgentMain />} />
