@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import type { GuideMetadata } from '../../../types/GuideMetadata';
+import ArticleFeedback from "@/components/ArticleFeedback";
 
 export const sections = [
     { id: "popular-frameworks", title: "Popular Frameworks" },
@@ -105,7 +106,7 @@ export default function WebDevDocs() {
                 mentioned above.
             </p>
 
-            
+            <ArticleFeedback articleId="/alldocs/welcome/webdev"/>
 
             <div className="mt-36 gap-4 w-full bg-white text-gray-700 border border-gray-300 flex items-center justify-between">
                 {/* Left button back */}

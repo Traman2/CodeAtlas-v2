@@ -1,11 +1,15 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "description": "",
+  "description": "CodeAtlas SAM backend",
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "sync": "sam sync --stack-name codeatlas-backend --watch",
+    "deploy": "sam deploy --guided",
+    "build": "sam build",
+    "validate": "sam validate",
+    "logs": "sam logs --stack-name codeatlas-backend --tail"
   },
   "keywords": [],
   "author": "",

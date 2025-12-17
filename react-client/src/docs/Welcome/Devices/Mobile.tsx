@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import type { GuideMetadata } from '../../../types/GuideMetadata';
+import ArticleFeedback from "@/components/ArticleFeedback";
 
 export const sections = [
     { id: "cross-platform-frameworks", title: "Cross-Platform Frameworks" },
@@ -78,6 +79,8 @@ export default function MobileDocs() {
                 <li>Push notifications and background tasks</li>
                 <li>App store deployment and distribution</li>
             </ul>
+
+            <ArticleFeedback articleId="/alldocs/welcome/mobile"/>
 
             <div className="mt-36 gap-4 w-full bg-white text-gray-700 border border-gray-300 flex items-center justify-between">
                 {/* Left button back */}

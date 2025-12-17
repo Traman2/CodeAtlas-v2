@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom"
 import { Icon } from "@iconify/react";
 import type { GuideMetadata } from '../../../types/GuideMetadata';
+import ArticleFeedback from '../../../components/ArticleFeedback';
 
 export const sections = [
     { id: "what-you-find", title: "What You'll Find" },
@@ -40,6 +41,7 @@ export const metadata: GuideMetadata = {
 
 export default function DocsOverview() {
     const navigate = useNavigate();
+
     return (
         <>
             <p className="text-[#4f46ff] font-semibold text-sm">GET STARTED</p>
@@ -53,9 +55,9 @@ export default function DocsOverview() {
             </p>
 
             <div className="w-full flex justify-center mb-20">
-                <Icon icon="streamline-pixel:computer-old-electronics-bug" className="w-70 h-70 text-[#1d1884]"/>
+                <Icon icon="streamline-pixel:computer-old-electronics-bug" className="w-70 h-70 text-[#1d1884]" />
             </div>
-            
+
 
             <p className="mt-4 mb-4 leading-relaxed">
                 Ever feel overwhelmed trying to learn a new technology? You're not alone! Official documentation
@@ -207,6 +209,8 @@ export default function DocsOverview() {
                 Remember: Everyone starts somewhere, and learning to code is a journey, not a race. Take your time,
                 don't be afraid to ask questions, and celebrate the small wins along the way. You've got this! 🚀
             </p>
+
+            <ArticleFeedback articleId="/alldocs/welcome/overview"/>
 
             <button
                 onClick={() => navigate("/alldocs/welcome/howtouse")}

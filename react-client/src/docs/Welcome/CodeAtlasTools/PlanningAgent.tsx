@@ -1,6 +1,7 @@
 import { Icon } from '@iconify/react';
 import type { GuideMetadata } from '../../../types/GuideMetadata';
 import { useNavigate } from "react-router-dom";
+import ArticleFeedback from '@/components/ArticleFeedback';
 
 export const sections = [
     { id: "key-features", title: "Key Features" },
@@ -78,6 +79,9 @@ export default function PlanningAgentDocs() {
                 <li>Creating development roadmaps</li>
                 <li>Estimating project timelines and resources</li>
             </ul>
+
+            <ArticleFeedback articleId="/alldocs/welcome/planningAgent"/>
+
             <div className="mt-36 gap-4 w-full bg-white text-gray-700 border border-gray-300 flex items-center justify-between">
                 {/* Left button back */}
                 <button

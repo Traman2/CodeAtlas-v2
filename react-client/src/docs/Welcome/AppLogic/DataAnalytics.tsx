@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import type { GuideMetadata } from '../../../types/GuideMetadata';
+import ArticleFeedback from "@/components/ArticleFeedback";
 
 export const sections = [
     { id: "analytics-platforms", title: "Analytics Platforms" },
@@ -78,6 +79,8 @@ export default function DataAnalyticsDocs() {
                 <li>Machine learning integration</li>
                 <li>ETL pipelines and data orchestration</li>
             </ul>
+
+            <ArticleFeedback articleId="/alldocs/welcome/dataanalytics"/>
 
             <div className="mt-36 gap-4 w-full bg-white text-gray-700 border border-gray-300 flex items-center justify-between">
                 {/* Left button back */}

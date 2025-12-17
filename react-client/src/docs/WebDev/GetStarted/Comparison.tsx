@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar } from 'recharts';
 import type { GuideMetadata } from '../../../types/GuideMetadata';
+import ArticleFeedback from "@/components/ArticleFeedback";
 
 export const sections = [
     { id: "overview", title: "Overview" },
@@ -388,7 +389,10 @@ export default function WebDevComparison() {
                 </button>
             </div>
 
-            <div className="mt-36 gap-4 w-full bg-white text-gray-700 border border-gray-300 flex items-center justify-between">
+            <div className="mt-36"/>
+            <ArticleFeedback articleId="/alldocs/webdev/comparison"/>
+
+            <div className="gap-4 w-full bg-white text-gray-700 border border-gray-300 flex items-center justify-between">
                 {/* Left button back */}
                 <button
                     onClick={() => navigate("/alldocs/webdev/overview")}

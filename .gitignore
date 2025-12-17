@@ -27,3 +27,11 @@ dist-ssr
 .claude
 
 CLAUDE.md
+
+# AWS SAM
+.aws-sam/
+samconfig.toml
+backend/.aws-sam/
+backend/samconfig.toml
+backend/src/node_modules/
+backend/src/package-lock.json

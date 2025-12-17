@@ -1,0 +1,93 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: CodeAtlas Backend API
+
+Globals:
+  Function:
+    Timeout: 30
+    Runtime: nodejs20.x
+    Environment:
+      Variables:
+        ARTICLE_STATS_TABLE: !Ref ArticleStatsTable
+    Architectures:
+      - x86_64
+
+Resources:
+  # API Gateway
+  CodeAtlasApi:
+    Type: AWS::Serverless::Api
+    Properties:
+      StageName: Prod
+      Cors:
+        AllowMethods: '''GET,POST,PUT,OPTIONS'''
+        AllowHeaders: '''Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'''
+        AllowOrigin: '''*'''
+
+  # Test Function
+  TestFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: src/
+      Handler: test.handler
+      Events:
+        TestApi:
+          Type: Api
+          Properties:
+            RestApiId: !Ref CodeAtlasApi
+            Path: /test
+            Method: get
+
+  # Article Counter Function
+  ArticleCounterFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: src/
+      Handler: articleCounter.handler
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref ArticleStatsTable
+      Events:
+        IncrementLike:
+          Type: Api
+          Properties:
+            RestApiId: !Ref CodeAtlasApi
+            Path: /article/counter
+            Method: post
+
+  # Article Stats Getter Function
+  ArticleStatsGetterFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: src/
+      Handler: articleStatsGetter.handler
+      Policies:
+        - DynamoDBReadPolicy:
+            TableName: !Ref ArticleStatsTable
+      Events:
+        GetStats:
+          Type: Api
+          Properties:
+            RestApiId: !Ref CodeAtlasApi
+            Path: /article/stats
+            Method: get
+
+  # DynamoDB Table
+  ArticleStatsTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: CodeAtlas-ArticleStats
+      AttributeDefinitions:
+        - AttributeName: articleId
+          AttributeType: S
+      KeySchema:
+        - AttributeName: articleId
+          KeyType: HASH
+      BillingMode: PAY_PER_REQUEST
+
+Outputs:
+  ApiUrl:
+    Description: API Gateway endpoint URL
+    Value: !Sub https://${CodeAtlasApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/
+  ArticleStatsTableName:
+    Description: DynamoDB table for article statistics
+    Value: !Ref ArticleStatsTable

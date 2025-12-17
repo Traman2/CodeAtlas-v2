@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import type { GuideMetadata } from '../../../types/GuideMetadata';
+import ArticleFeedback from "@/components/ArticleFeedback";
 
 export const sections = [
     { id: "what-is-webdev", title: "What is Web Development?" },
@@ -253,6 +254,9 @@ export default function WebDevOverview() {
                 you build what you need efficiently. Start with one, master it, and then explore others to expand your
                 toolkit. Happy coding! 🚀
             </p>
+
+            <div className="mt-36"/>
+            <ArticleFeedback articleId="/alldocs/webdev/overview"/>
 
             <div className="mt-36 gap-4 w-full bg-white text-gray-700 border border-gray-300 flex items-center justify-between">
                 {/* Right button next */}

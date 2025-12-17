@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import type { GuideMetadata } from '../../../types/GuideMetadata';
+import ArticleFeedback from "@/components/ArticleFeedback";
 
 export const sections = [
     { id: "major-cloud-providers", title: "Major Cloud Providers" },
@@ -79,6 +80,8 @@ export default function CloudDocs() {
                 <li>Cloud databases and storage solutions</li>
                 <li>Monitoring and logging with CloudWatch and Stackdriver</li>
             </ul>
+
+            <ArticleFeedback articleId="/alldocs/welcome/cloud"/>
 
             <div className="mt-36 gap-4 w-full bg-white text-gray-700 border border-gray-300 flex items-center justify-between">
                 {/* Left button back */}

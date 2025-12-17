@@ -3,6 +3,7 @@ import { Icon } from "@iconify/react";
 import CodeBlock from '../../../components/CodeBlock';
 import 'highlight.js/styles/atom-one-dark.css';
 import { useNavigate } from "react-router-dom"
+import ArticleFeedback from '@/components/ArticleFeedback';
 
 export const sections = [
     { id: "understanding-interface", title: "Understanding the Interface" },
@@ -359,6 +360,8 @@ export default function DocsHowToUse() {
                 and search for what you need. Happy learning! 🎉
             </p>
 
+            <ArticleFeedback articleId="/alldocs/welcome/howtouse"/>
+            
             <div className="gap-4 w-full bg-white text-gray-700 border border-gray-300 flex items-center justify-between">
                 {/* Left button back */}
                 <button

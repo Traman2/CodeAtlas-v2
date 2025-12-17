@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import CodeBlock from '../../../components/CodeBlock';
 import type { GuideMetadata } from '../../../types/GuideMetadata';
+import ArticleFeedback from "@/components/ArticleFeedback";
 
 export const sections = [
     { id: "what-is-vite", title: "What is Vite?" },
@@ -504,8 +505,10 @@ export default function ViteDocs() {
                     </div>
                 </div>
             </div>
+            <div className="mt-36"/>
+            <ArticleFeedback articleId="/alldocs/webdev/vite"/>
 
-            <div className="mt-36 gap-4 w-full bg-white text-gray-700 border border-gray-300 flex items-center justify-between">
+            <div className="gap-4 w-full bg-white text-gray-700 border border-gray-300 flex items-center justify-between">
                 {/* Left button back */}
                 <button
                     onClick={() => navigate("/alldocs/webdev/tailwind")}

@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import type { GuideMetadata } from '../../../types/GuideMetadata';
+import ArticleFeedback from "@/components/ArticleFeedback";
 
 export const sections = [
     { id: "backend-frameworks", title: "Backend Frameworks" },
@@ -78,6 +79,8 @@ export default function BackendDocs() {
                 <li>Caching strategies with Redis</li>
                 <li>Message queues and background jobs</li>
             </ul>
+
+            <ArticleFeedback articleId="/alldocs/welcome/backend"/>
 
             <div className="mt-36 gap-4 w-full bg-white text-gray-700 border border-gray-300 flex items-center justify-between">
                 {/* Left button back */}

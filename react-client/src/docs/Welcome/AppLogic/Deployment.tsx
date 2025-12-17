@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import type { GuideMetadata } from '../../../types/GuideMetadata';
+import ArticleFeedback from "@/components/ArticleFeedback";
 
 export const sections = [
     { id: "deployment-platforms", title: "Deployment Platforms" },
@@ -78,6 +79,8 @@ export default function DeploymentDocs() {
                 <li>Configuration management with Ansible</li>
                 <li>Load balancing and auto-scaling</li>
             </ul>
+
+            <ArticleFeedback articleId="/alldocs/welcome/deployment"/>
 
             <div className="mt-36 gap-4 w-full bg-white text-gray-700 border border-gray-300 flex items-center justify-between">
                 {/* Left button back */}

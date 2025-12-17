@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import type { GuideMetadata } from '../../../types/GuideMetadata';
+import ArticleFeedback from "@/components/ArticleFeedback";
 
 export const sections = [
     { id: "what-is-a-sitemap", title: "What is a Sitemap?" },
@@ -80,6 +81,8 @@ export default function SiteXmlDocs() {
                 <li>Image and video sitemaps for rich content</li>
                 <li>Monitoring sitemap errors and coverage</li>
             </ul>
+
+            <ArticleFeedback articleId="/alldocs/welcome/sitexml"/>
 
             <div className="mt-36 gap-4 w-full bg-white text-gray-700 border border-gray-300 flex items-center justify-between">
                 {/* Left button back */}

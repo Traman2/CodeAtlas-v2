@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import type { GuideMetadata } from '../../../types/GuideMetadata';
+import ArticleFeedback from "@/components/ArticleFeedback";
 
 export const sections = [
     { id: "how-to-use-api-finder", title: "How to Use API Finder" },
@@ -81,6 +82,8 @@ export default function APIFinderDocs() {
                 <li>Email & SMS Services</li>
                 <li>Authentication & Authorization</li>
             </ul>
+
+            <ArticleFeedback articleId="/alldocs/welcome/apifinder"/>
 
             <div className="mt-36 gap-4 w-full bg-white text-gray-700 border border-gray-300 flex items-center justify-between">
                 {/* Left button back */}
