@@ -258,7 +258,7 @@ export default function WebDevOverview() {
             <div className="mt-36"/>
             <ArticleFeedback articleId="/alldocs/webdev/overview"/>
 
-            <div className="mt-36 gap-4 w-full bg-white text-gray-700 border border-gray-300 flex items-center justify-between">
+            <div className="gap-4 w-full bg-white text-gray-700 border border-gray-300 flex items-center justify-between">
                 {/* Right button next */}
                 <button
                     onClick={() => navigate("/alldocs/webdev/comparison")}
