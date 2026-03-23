@@ -1,4 +1,4 @@
-# Code Atlas v2 Repo
+# Code Atlas v2
 
 <div align="center">
   <img src="readme-pictures/LandingPage.png" alt="Code Atlas Landing Page" width="800"/>
