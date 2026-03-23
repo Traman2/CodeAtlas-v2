@@ -26,6 +26,7 @@ export default function Navbar({ defaultPage }: Props) {
     const [isSearchModalOpen, setIsSearchModalOpen] = useState(false)
     const navigate = useNavigate();
 
+    //Comment to initiate GitHub workflow action
     useEffect(() => {
         const handleKeyDown = (e: KeyboardEvent) => {
             if (e.key === "/" && !isSearchModalOpen) {
